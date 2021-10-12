@@ -41,11 +41,9 @@ function validateType({ label, setting, value }) {
     if (!isNumber(value)) throw new Error(error);
   } else if (setting === "regex") {
     if (!isRegex(value)) throw new Error(error);
-  } else if (setting === "string") {
-    if (!isString(value)) throw new Error(error);
   } else if (setting === "valid") {
     if (!isValid(value, "testAll")) throw new Error(error);
-  }
+  } else if (typeof value !== setting) throw new Error(error);
 }
 
 module.exports = validateType;

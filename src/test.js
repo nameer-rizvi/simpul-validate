@@ -4,7 +4,7 @@ const dictionary = [
   { key: "formValue", label: "String value", type: "string" },
 ];
 
-const payload = { formValue: "test" };
+const payload = { formValue: "" };
 
 const required = ["formValue"];
 
