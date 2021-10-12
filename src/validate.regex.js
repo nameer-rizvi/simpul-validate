@@ -12,7 +12,7 @@ const resolver = {
   },
   noWhitespace: {
     r: RegExp(/^\S+$/),
-    warning: "can't include spaces/whitespaces",
+    warning: "can't include any spaces",
   },
 };
 
@@ -20,7 +20,7 @@ function validateRegex({ value, setting, label }) {
   for (let i = 0; i < setting.length; i++) {
     let regex = setting[i];
     if (!safeR(value)) {
-      throw new Error(label + " is hacky code.. please try something else.");
+      throw new Error(label + " is forbidden.. please try something else.");
     } else {
       let config = isString(regex) ? resolver[regex] : regex;
 

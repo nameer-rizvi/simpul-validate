@@ -1,22 +1,20 @@
-const { isObject } = require("simpul");
-const isValid = require("./util.isValid");
-const hasRequired = require("./util.hasRequired");
-const sanitized = require("./util.sanitized");
+const { isArrayValid, isObject } = require("simpul");
+const validatePayload = require("./util.validatePayload");
+const hasRequiredValues = require("./util.hasRequiredValues");
+const sanitizePayload = require("./util.sanitizePayload");
 
-function validateInitialize(dictionary = [], options = {}) {
+function validateInitialize(dictionary, options = {}) {
   function validate(payload, required) {
     if (!isObject(payload)) throw new Error("Payload must be an object.");
 
-    isValid(
-      payload,
-      options.ignoreValidationConfigKeys,
-      dictionary,
-      options.validation
-    );
+    if (!isArrayValid(dictionary))
+      throw new Error("Data dictionary (array of configs) is required.");
 
-    if (required) hasRequired(payload, required, dictionary);
+    validatePayload(payload, dictionary, options);
 
-    return sanitized(payload, options.DOMPurifyOptions, dictionary);
+    if (required) hasRequiredValues(payload, required, dictionary);
+
+    return sanitizePayload(payload, options.DOMPurifyOptions, dictionary);
   }
 
   return options.async

@@ -1,19 +1,14 @@
 const getDictionaryConfig = require("./util.getDictionaryConfig");
 const validationResolver = require("./validate.index");
 
-function isValid(
-  payload,
-  ignoreValidationConfigKeys = [],
-  dictionary,
-  validationResolverCustom
-) {
-  ignoreValidationConfigKeys = [
+function validatePayload(payload, dictionary, options) {
+  const ignoreValidationConfigKeys = [
     "key",
     "label",
     "helpers",
     "ignoreIsSanitized",
     "ignoreSanitizer",
-    ...ignoreValidationConfigKeys,
+    ...(options.ignoreValidationConfigKeys || []),
   ];
 
   const payloadKeys = Object.keys(payload);
@@ -24,7 +19,7 @@ function isValid(
     let validationConfig = getDictionaryConfig(dictionary, payloadKey);
 
     if (!validationConfig)
-      throw new Error(`Missing dictionary config for key: ${payloadKey}.`);
+      throw new Error(`Missing data dictionary config for key: ${payloadKey}.`);
 
     let validationConfigKeys = Object.keys(validationConfig).filter(
       (validationConfigKey) =>
@@ -33,15 +28,16 @@ function isValid(
 
     let value = payload[payloadKey];
 
-    let label = validationConfig.label || payloadKey;
+    let label = validationConfig.label;
 
-    if (value !== null && value !== undefined) {
+    if (value !== null && value !== undefined && value !== "") {
       for (let j = 0; j < validationConfigKeys.length; j++) {
         let validationConfigKey = validationConfigKeys[j];
 
-        let validation = { ...validationResolver, ...validationResolverCustom }[
-          validationConfigKey
-        ];
+        let validation = {
+          ...validationResolver,
+          ...options.validationResolverCustom,
+        }[validationConfigKey];
 
         if (!validation)
           throw new Error(`Missing validation: ${validationConfigKey}.`);
@@ -52,8 +48,7 @@ function isValid(
 
         if (validationConfigKey === "match") {
           match = payload[setting];
-          matchLabel =
-            getConfigFromDictionary(dictionary, setting).label || setting;
+          matchLabel = getDictionaryConfig(dictionary, setting).label;
         }
 
         validation({ setting, value, label, match, matchLabel });
@@ -64,4 +59,4 @@ function isValid(
   }
 }
 
-module.exports = isValid;
+module.exports = validatePayload;

@@ -1,12 +1,129 @@
 const initializeValidate = require("./index");
 
 const dictionary = [
-  { key: "formValue", label: "String value", type: "string" },
+  {
+    key: "books",
+    label: "favorite books",
+    type: "array",
+    typeArrayItem: "string",
+    maxLengthArray: 4,
+    maxLengthArrayItem: 6,
+    whitelistArray: ["test", "thing", "tom"],
+  },
+  {
+    key: "cursor",
+    type: "base64",
+  },
+  {
+    key: "isLiked",
+    label: "liked state",
+    type: "boolean",
+  },
+  {
+    key: "isBookmarked",
+    label: "bookmarked state",
+    type: "booleanNumber",
+  },
+  {
+    key: "isSaved",
+    label: "saved state",
+    type: "booleanString",
+  },
+  {
+    key: "created_at",
+    label: "published date",
+    type: "date",
+  },
+  {
+    key: "callback",
+    type: "function",
+    ignoreSanitizer: true,
+  },
+  {
+    key: "data",
+    type: "json",
+  },
+  {
+    key: "dataStringified",
+    label: "stringified data",
+    type: "jsonString",
+  },
+  {
+    key: "id",
+    type: "number",
+    min: 5,
+    max: 10,
+  },
+  {
+    key: "properties",
+    type: "object",
+  },
+  {
+    key: "r",
+    label: "regex",
+    type: "regex",
+    ignoreSanitizer: true,
+  },
+  {
+    key: "username",
+    type: "string",
+    // regex: ["noWhitespace", "noSpecialChar", "email"],
+    // blacklist: {
+    //   exact: ["mrsbottoms"],
+    //   loose: ["botom"],
+    // },
+    // whitelist: ["mrbottoms"],
+  },
+  {
+    key: "username_confirmation",
+    label: "username confirmation",
+    type: "string",
+    match: "username",
+  },
+  {
+    key: "comment",
+    label: "Comment",
+    type: "string",
+    maxLengthHTML: 15,
+    minLengthHTML: 5,
+    minWordsHTML: 3,
+    maxWordsHTML: 5,
+  },
+  {
+    key: "comment2",
+    label: "Comment 2",
+    type: "string",
+    minLength: 10,
+    minWords: 3,
+    maxWords: 5,
+  },
+  {
+    key: "chew",
+    type: "valid",
+  },
 ];
 
-const payload = { formValue: "" };
+const payload = {
+  books: ["tom", "test", "thing", "tom"],
+  cursor: "MTAw",
+  isLiked: false,
+  isBookmarked: 0,
+  isSaved: "true",
+  created_at: new Date(),
+  callback: () => null,
+  data: { text: "This is some text." },
+  dataStringified: `["as0df90asd9f09"]`,
+  id: "5",
+  properties: { pages: 100, words: 5000 },
+  r: new RegExp(),
+  chew: "null",
+  username: "mrbottoms_",
+  username_confirmation: "mrbottoms_",
+  comment: "<p>asdf a s dfs d</p>",
+  comment2: "asda sda  asdf asdf asdf",
+};
 
-const required = ["formValue"];
+const required = dictionary.map((i) => i.key);
 
 try {
   const sanitizedPayload = initializeValidate(dictionary)(payload, required);

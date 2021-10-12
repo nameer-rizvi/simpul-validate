@@ -2,7 +2,7 @@ const { isString, isStringValid, isValid } = require("simpul");
 const { stripHtml } = require("string-strip-html");
 const getDictionaryConfig = require("./util.getDictionaryConfig");
 
-function hasRequired(payload, required, dictionary) {
+function hasRequiredValues(payload, required, dictionary) {
   for (let i = required.length - 1; i >= 0; i--) {
     let requiredKey = required[i];
 
@@ -14,12 +14,11 @@ function hasRequired(payload, required, dictionary) {
         : isStringValid(requiredValue)
       : isValid(requiredValue);
 
-    if (!hasRequiredValue) {
-      requiredKeyLabel =
-        getDictionaryConfig(dictionary, requiredKey).label || requiredKey;
-      throw new Error(`${requiredKeyLabel} is required.`);
-    }
+    if (!hasRequiredValue)
+      throw new Error(
+        `${getDictionaryConfig(dictionary, requiredKey).label} is required.`
+      );
   }
 }
 
-module.exports = hasRequired;
+module.exports = hasRequiredValues;
