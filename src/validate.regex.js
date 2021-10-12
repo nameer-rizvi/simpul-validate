@@ -4,7 +4,7 @@ const { isString } = require("simpul");
 const resolver = {
   email: {
     r: RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),
-    warning: "is an invalid email",
+    warning: "must be properly formatted",
   },
   noSpecialChar: {
     r: RegExp(/^\w+$/),

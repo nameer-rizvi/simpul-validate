@@ -19,12 +19,9 @@ function validateInitialize(dictionary = [], options = {}) {
     return sanitized(payload, options.DOMPurifyOptions, dictionary);
   }
 
-  let asyncValidate;
-
-  if (options.async)
-    asyncValidate = async (payload, required) => validate(payload, required);
-
-  return asyncValidate || validate;
+  return options.async
+    ? async (payload, required) => validate(payload, required)
+    : validate;
 }
 
 module.exports = validateInitialize;
