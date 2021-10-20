@@ -8,7 +8,10 @@ const dictionary = [
     typeArrayItem: "string",
     maxLengthArray: 4,
     maxLengthArrayItem: 6,
-    whitelistArray: ["test", "thing", "tom"],
+    whitelistArray: ["test", "thing", "yooo"],
+    blacklistArray: {
+      exact: ["yooO"],
+    },
   },
   {
     key: "cursor",
@@ -57,6 +60,8 @@ const dictionary = [
   {
     key: "properties",
     type: "object",
+    whitelistKeys: ["pages", "words"],
+    blacklistKeys: ["asd"],
   },
   {
     key: "r",
@@ -104,7 +109,7 @@ const dictionary = [
 ];
 
 const payload = {
-  books: ["tom", "test", "thing", "tom"],
+  books: ["test", "thing", "yooo"],
   cursor: "MTAw",
   isLiked: false,
   isBookmarked: 0,

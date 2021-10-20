@@ -1,5 +1,7 @@
 const validationResolver = {
   blacklist: require("./validate.blacklist"),
+  blacklistArray: require("./validate.blacklistArray"),
+  blacklistKeys: require("./validate.blacklistKeys"),
   isSanitized: require("./validate.isSanitized"),
   match: require("./validate.match"),
   max: require("./validate.max"),
@@ -19,6 +21,7 @@ const validationResolver = {
   typeArrayItem: require("./validate.typeArrayItem"),
   whitelist: require("./validate.whitelist"),
   whitelistArray: require("./validate.whitelistArray"),
+  whitelistKeys: require("./validate.whitelistKeys"),
 };
 
 module.exports = validationResolver;

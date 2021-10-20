@@ -12,9 +12,14 @@ function validateBlacklist({ value, setting, label }) {
 
   if (setting.loose) {
     for (let i = setting.loose.length - 1; i >= 0; i--) {
-      let blacklistItem = setting.loose[i];
-      if (value.toLowerCase().includes(blacklistItem))
-        throw new Error(makeError(blacklistItem));
+      let blacklistItem = setting.loose[i].toLowerCase();
+
+      let isError = value
+        .toLowerCase()
+        .trim()
+        .includes(blacklistItem);
+
+      if (isError) throw new Error(makeError(blacklistItem));
     }
   }
 }
