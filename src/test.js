@@ -106,6 +106,10 @@ const dictionary = [
     key: "chew",
     type: "valid",
   },
+  {
+    key: "token",
+    type: "jwt",
+  },
 ];
 
 const payload = {
@@ -126,6 +130,8 @@ const payload = {
   username_confirmation: "mrbottoms_",
   comment: "<p>asdf a s dfs d</p>",
   comment2: "asda sda  asdf asdf asdf",
+  token:
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJpenZpbmFtZWVyQGdtYWlsLmNvbSIsImlhdCI6MTYzNzI3MjMyMiwiZXhwIjoxNjM3MjczMjIyfQ.cQVGo42D_emjj-o1SZPFAwlnSsSYFt8mVALpXYIH8lo",
 };
 
 const required = dictionary.map((i) => i.key);
