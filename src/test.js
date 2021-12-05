@@ -110,6 +110,10 @@ const dictionary = [
     key: "token",
     type: "jwt",
   },
+  {
+    key: "jumanji",
+    type: "stringOrArray",
+  },
 ];
 
 const payload = {
@@ -132,6 +136,7 @@ const payload = {
   comment2: "asda sda  asdf asdf asdf",
   token:
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJpenZpbmFtZWVyQGdtYWlsLmNvbSIsImlhdCI6MTYzNzI3MjMyMiwiZXhwIjoxNjM3MjczMjIyfQ.cQVGo42D_emjj-o1SZPFAwlnSsSYFt8mVALpXYIH8lo",
+  jumanji: ["testtttt"],
 };
 
 const required = dictionary.map((i) => i.key);

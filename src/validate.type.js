@@ -13,6 +13,7 @@ const {
   isObject,
   isRegex,
   isString,
+  isStringOrArray,
   isValid,
 } = require("simpul");
 
@@ -34,6 +35,7 @@ function validateType({ label, setting, value }) {
     object: isObject,
     regex: isRegex,
     string: isString,
+    stringOrArray: isStringOrArray,
     valid: isValid,
   };
 
