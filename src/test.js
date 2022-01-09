@@ -33,6 +33,11 @@ const dictionary = [
     type: "booleanString",
   },
   {
+    key: "isAny",
+    label: "any boolean",
+    type: "booleanAny",
+  },
+  {
     key: "created_at",
     label: "published date",
     type: "date",
@@ -122,6 +127,7 @@ const payload = {
   isLiked: false,
   isBookmarked: 0,
   isSaved: "true",
+  isAny: 1,
   created_at: new Date(),
   callback: () => null,
   data: { text: "This is some text." },
