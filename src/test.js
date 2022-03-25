@@ -119,6 +119,10 @@ const dictionary = [
     key: "jumanji",
     type: "stringOrArray",
   },
+  {
+    key: "ticketLink",
+    type: "http",
+  },
 ];
 
 const payload = {
@@ -143,6 +147,7 @@ const payload = {
   token:
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJpenZpbmFtZWVyQGdtYWlsLmNvbSIsImlhdCI6MTYzNzI3MjMyMiwiZXhwIjoxNjM3MjczMjIyfQ.cQVGo42D_emjj-o1SZPFAwlnSsSYFt8mVALpXYIH8lo",
   jumanji: ["testtttt"],
+  ticketLink: "http://dcmusic.live",
 };
 
 const required = dictionary.map((i) => i.key);

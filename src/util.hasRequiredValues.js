@@ -1,5 +1,5 @@
 const { isString, isStringValid, isValid } = require("simpul");
-const { stripHtml } = require("string-strip-html");
+const stripHtml = require("string-strip-html");
 const getDictionaryConfig = require("./util.getDictionaryConfig");
 
 function hasRequiredValues(payload, required, dictionary) {
@@ -10,7 +10,7 @@ function hasRequiredValues(payload, required, dictionary) {
 
     let hasRequiredValue = isString(requiredValue)
       ? requiredKey.includes("html") || requiredKey.includes("rich_text")
-        ? isStringValid(stripHtml(requiredValue).result)
+        ? isStringValid(stripHtml(requiredValue))
         : isStringValid(requiredValue)
       : isValid(requiredValue);
 
