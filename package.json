@@ -23,7 +23,7 @@
   "homepage": "https://github.com/nameer-rizvi/simpul-validate#readme",
   "dependencies": {
     "safe-regex": "^2.1.1",
-    "sanitized": "^1.1.5",
+    "sanitized": "^1.1.6",
     "simpul": "^0.8.5",
     "string-strip-html": "^4.4.1"
   }
