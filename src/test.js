@@ -1,164 +1,281 @@
-const initializeValidate = require("./index");
+const simpul_validate = require("./index");
 
 const dictionary = [
+  // validations...
   {
-    key: "books",
-    label: "favorite books",
-    type: "array",
-    typeArrayItem: "string",
-    maxLengthArray: 4,
-    maxLengthArrayItem: 6,
-    whitelistArray: ["test", "thing", "yooo"],
-    blacklistArray: {
-      exact: ["yooO"],
-    },
+    key: "blacklist_key",
+    label: "blacklist test",
+    blacklist: { loose: ["other"] },
   },
   {
-    key: "cursor",
+    key: "blacklistArray_key",
+    label: "blacklistArray test",
+    blacklistArray: { exact: ["other"] },
+  },
+  {
+    key: "blacklistKeys_key",
+    label: "blacklistKeys test",
+    blacklistKeys: { exact: ["other"] },
+  },
+  {
+    key: "isSanitized_key",
+    label: "isSanitized test",
+    type: "string",
+  },
+  {
+    key: "match_key",
+    label: "match test",
+    match: "match_key2",
+  },
+  {
+    key: "match_key2",
+    label: "match test 2",
+  },
+  {
+    key: "max_key",
+    label: "max test",
+    max: 3,
+  },
+  {
+    key: "maxLength_key",
+    label: "maxLength test",
+    maxLength: 3,
+  },
+  {
+    key: "maxLengthArray_key",
+    label: "maxLengthArray test",
+    maxLengthArray: 3,
+  },
+  {
+    key: "maxLengthArrayItem_key",
+    label: "maxLengthArrayItem test",
+    maxLengthArrayItem: 3,
+  },
+  {
+    key: "maxLengthHTML_key",
+    label: "maxLengthHTML test",
+    maxLengthHTML: 3,
+  },
+  {
+    key: "maxWords_key",
+    label: "maxWords test",
+    maxWords: 3,
+  },
+  {
+    key: "maxWordsHTML_key",
+    label: "maxWordsHTML test",
+    maxWordsHTML: 3,
+  },
+  {
+    key: "min_key",
+    label: "min test",
+    min: 3,
+  },
+  {
+    key: "minLength_key",
+    label: "minLength test",
+    minLength: 3,
+  },
+  {
+    key: "minLengthHTML_key",
+    label: "minLengthHTML test",
+    minLengthHTML: 3,
+  },
+  {
+    key: "minWords_key",
+    label: "minWords test",
+    minWords: 3,
+  },
+  {
+    key: "minWordsHTML_key",
+    label: "minWordsHTML test",
+    minWordsHTML: 3,
+  },
+  {
+    key: "regex_key_email",
+    label: "regex test email",
+    regex: ["email"],
+  },
+  {
+    key: "regex_key_noSpecialChar",
+    label: "regex test noSpecialChar",
+    regex: ["noSpecialChar"],
+  },
+  {
+    key: "regex_key_noWhitespace",
+    label: "regex test noWhitespace",
+    regex: ["noWhitespace"],
+  },
+  {
+    key: "typeArrayItem_key",
+    label: "typeArrayItem test",
+    typeArrayItem: "number",
+  },
+  // {
+  //   key: "whitelist_key",
+  //   label: "whitelist test",
+  //   whitelist: "",
+  // },
+  // {
+  //   key: "whitelistArray_key",
+  //   label: "whitelistArray test",
+  //   whitelistArray: "",
+  // },
+  // {
+  //   key: "whitelistKeys_key",
+  //   label: "whitelistKeys test",
+  //   whitelistKeys: "",
+  // },
+  // types...
+  {
+    key: "array_key",
+    label: "array type test",
+    type: "array",
+  },
+  {
+    key: "base64_key",
+    label: "base64 type test",
     type: "base64",
   },
   {
-    key: "isLiked",
-    label: "liked state",
+    key: "boolean_key",
+    label: "boolean type test",
     type: "boolean",
   },
   {
-    key: "isBookmarked",
-    label: "bookmarked state",
-    type: "booleanNumber",
-  },
-  {
-    key: "isSaved",
-    label: "saved state",
-    type: "booleanString",
-  },
-  {
-    key: "isAny",
-    label: "any boolean",
+    key: "booleanAny_key",
+    label: "booleanAny type test",
     type: "booleanAny",
   },
   {
-    key: "created_at",
-    label: "published date",
+    key: "booleanNumber_key",
+    label: "booleanNumber type test",
+    type: "booleanNumber",
+  },
+  {
+    key: "booleanString_key",
+    label: "booleanString type test",
+    type: "booleanString",
+  },
+  {
+    key: "date_key",
+    label: "date type test",
     type: "date",
   },
   {
-    key: "callback",
+    key: "function_key",
+    label: "function type test",
     type: "function",
-    ignoreSanitizer: true,
   },
   {
-    key: "data",
+    key: "http_key",
+    label: "http type test",
+    type: "http",
+  },
+  {
+    key: "json_key",
+    label: "json type test",
     type: "json",
   },
   {
-    key: "dataStringified",
-    label: "stringified data",
+    key: "jsonString_key",
+    label: "jsonString type test",
     type: "jsonString",
   },
   {
-    key: "id",
-    type: "number",
-    min: 5,
-    max: 10,
-  },
-  {
-    key: "properties",
-    type: "object",
-    whitelistKeys: ["pages", "words"],
-    blacklistKeys: ["asd"],
-  },
-  {
-    key: "r",
-    label: "regex",
-    type: "regex",
-    ignoreSanitizer: true,
-  },
-  {
-    key: "username",
-    type: "string",
-    // regex: ["noWhitespace", "noSpecialChar", "email"],
-    // blacklist: {
-    //   exact: ["mrsbottoms"],
-    //   loose: ["botom"],
-    // },
-    // whitelist: ["mrbottoms"],
-  },
-  {
-    key: "username_confirmation",
-    label: "username confirmation",
-    type: "string",
-    match: "username",
-  },
-  {
-    key: "comment",
-    label: "Comment",
-    type: "string",
-    maxLengthHTML: 15,
-    minLengthHTML: 5,
-    minWordsHTML: 3,
-    maxWordsHTML: 5,
-  },
-  {
-    key: "comment2",
-    label: "Comment 2",
-    type: "string",
-    minLength: 10,
-    minWords: 3,
-    maxWords: 5,
-  },
-  {
-    key: "chew",
-    type: "valid",
-  },
-  {
-    key: "token",
+    key: "jwt_key",
+    label: "jwt type test",
     type: "jwt",
   },
   {
-    key: "jumanji",
+    key: "number_key",
+    label: "number type test",
+    type: "number",
+  },
+  {
+    key: "object_key",
+    label: "object type test",
+    type: "object",
+  },
+  {
+    key: "regex_key",
+    label: "regex type test",
+    type: "regex",
+  },
+  {
+    key: "string_key",
+    label: "string type test",
+    type: "string",
+  },
+  {
+    key: "stringOrArray_key",
+    label: "stringOrArray type test",
     type: "stringOrArray",
   },
   {
-    key: "ticketLink",
-    type: "http",
+    key: "valid_key",
+    label: "valid type test",
+    type: "valid",
   },
 ];
 
 const payload = {
-  books: ["test", "thing", "yooo"],
-  cursor: "MTAw",
-  isLiked: false,
-  isBookmarked: 0,
-  isSaved: "true",
-  isAny: 1,
-  created_at: new Date(),
-  callback: () => null,
-  data: { text: "This is some text." },
-  dataStringified: `["as0df90asd9f09"]`,
-  id: "5",
-  properties: { pages: 100, words: 5000 },
-  r: new RegExp(),
-  chew: "null",
-  username: "mrbottoms_",
-  username_confirmation: "mrbottoms_",
-  comment: "<p>asdf a s dfs d</p>",
-  comment2: "asda sda  asdf asdf asdf",
-  token:
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJpenZpbmFtZWVyQGdtYWlsLmNvbSIsImlhdCI6MTYzNzI3MjMyMiwiZXhwIjoxNjM3MjczMjIyfQ.cQVGo42D_emjj-o1SZPFAwlnSsSYFt8mVALpXYIH8lo",
-  jumanji: ["testtttt"],
-  ticketLink: "http://dcmusic.live",
+  // validations...
+  blacklist_key: " this that ", // "other"
+  blacklistArray_key: ["this", "that"], // "other"
+  blacklistKeys_key: { this: "this_value", that: "that_value" }, // other: "other_value"
+  isSanitized_key: `<img src="x">`, // "<img src=x onerror=alert(1)//>"
+  match_key: "this",
+  match_key2: "this", // "that"
+  max_key: 3, // 4
+  maxLength_key: "123", // "1234"
+  maxLengthArray_key: [1, 2, 3], // [1, 2, 3, 4]
+  maxLengthArrayItem_key: ["123", "123", "123"], // ["123", "123", "124"]
+  maxLengthHTML_key: "<p>123</p>", // "<p>1234</p>"
+  maxWords_key: " 1 2 3 ", // " 1 2 3 4"
+  maxWordsHTML_key: "<p> 1 2 3 </p>", // "<p> 1 2 3 4</p>"
+  min_key: 3, // 2
+  minLength_key: "123", // "12"
+  minLengthHTML_key: "<p>123</p>", // "<p>12</p>"
+  minWords_key: " 1 2 3 ", // " 1 2  "
+  minWordsHTML_key: "<p> 1 2 3 </p>", // "<p> 1 2  </p>"
+  regex_key_email: "asd@asd.com", // "asd"
+  regex_key_noSpecialChar: "asd_", // "asd_!"
+  regex_key_noWhitespace: "asd", // "asd "
+  typeArrayItem_key: [123], // "asd"
+  // whitelist_key: "",
+  // whitelistArray_key: "",
+  // whitelistKeys_key: "",
+  // // types...
+  array_key: [], // "[]"
+  base64_key: "MTIz", // "MTIz."
+  boolean_key: false, // "123"
+  booleanAny_key: "false", // "123"
+  booleanNumber_key: 0, // 2
+  booleanString_key: "false", // "123"
+  date_key: new Date().toLocaleString(), // "invalid date"
+  function_key: () => {}, // "123"
+  http_key: "http://website.com", // "123"
+  json_key: { key: "value" }, // ""
+  jsonString_key: `{"key":"value"}`, // "undefined"
+  jwt_key:
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c", // "asd"
+  number_key: 123, // "123"
+  object_key: { key: "value" }, // "123"
+  regex_key: new RegExp(), // "123"
+  string_key: "123", // 123
+  stringOrArray_key: ["123"], // ""
+  valid_key: "123", // ""
 };
 
 const required = dictionary.map((i) => i.key);
 
 try {
-  const sanitizedPayload = initializeValidate(dictionary)(payload, required);
-  console.log({ sanitizedPayload });
+  console.log(simpul_validate(dictionary)(payload, required));
 } catch (error) {
-  console.log({ error: error.toString() });
+  console.log(error);
 }
 
-initializeValidate(dictionary, { async: true })(payload, required)
-  .then((sanitizedPayload) => console.log({ sanitizedPayload }))
-  .catch((error) => console.log({ error: error.toString() }));
+simpul_validate(dictionary, { async: true })(payload, required)
+  .then(console.log)
+  .catch(console.log);

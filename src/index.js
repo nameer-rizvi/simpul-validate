@@ -3,23 +3,28 @@ const validatePayload = require("./util.validatePayload");
 const hasRequiredValues = require("./util.hasRequiredValues");
 const sanitizePayload = require("./util.sanitizePayload");
 
-function validateInitialize(dictionary, options = {}) {
-  function validate(payload, required) {
-    if (!isObject(payload)) throw new Error("Payload must be an object.");
+const validate = (dictionary, option) => (payload, required) => {
+  if (!isArrayValid(dictionary))
+    throw new Error("Dictionary (array of definitions) is required.");
 
-    if (!isArrayValid(dictionary))
-      throw new Error("Data dictionary (array of configs) is required.");
+  if (!isObject(payload)) throw new Error("Payload must be an object.");
 
-    validatePayload(payload, dictionary, options);
+  validatePayload(payload, dictionary, option);
 
-    if (required) hasRequiredValues(payload, required, dictionary);
+  if (required) hasRequiredValues(required, payload, dictionary);
 
-    return sanitizePayload(payload, options.DOMPurifyOptions, dictionary);
-  }
+  const sanitizedPayload = sanitizePayload(
+    payload,
+    option.DOMPurifyOptions,
+    dictionary
+  );
 
-  return options.async
-    ? async (payload, required) => validate(payload, required)
-    : validate;
-}
+  return sanitizedPayload;
+};
 
-module.exports = validateInitialize;
+module.exports = (dictionary, option = {}) => {
+  if (option.async) {
+    return async (payload, required) =>
+      validate(dictionary, option)(payload, required);
+  } else return validate(dictionary, option);
+};

@@ -16,7 +16,7 @@ const resolver = {
   },
 };
 
-function validateRegex({ value, setting, label }) {
+function validateRegex({ setting, value, label }) {
   for (let i = 0; i < setting.length; i++) {
     let regex = setting[i];
     if (!safeR(value)) {
@@ -24,12 +24,14 @@ function validateRegex({ value, setting, label }) {
     } else {
       let config = isString(regex) ? resolver[regex] : regex;
 
-      if (!config) throw new Error(`Missing regex config for: ${regex}.`);
+      if (!config)
+        throw new Error(`Missing regex config for: ${regex.r || regex}.`);
 
-      if (!config.r) throw new Error(`Missing regex.r for: ${regex}.`);
+      if (!config.r)
+        throw new Error(`Missing regex.r for: ${regex.r || regex}.`);
 
       if (!config.warning)
-        throw new Error(`Missing regex.warning for: ${regex}.`);
+        throw new Error(`Missing regex.warning for: ${regex.r || regex}.`);
 
       if (!config.r.test(value)) throw new Error(`${label} ${config.warning}.`);
     }

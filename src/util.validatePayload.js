@@ -1,60 +1,55 @@
-const getDictionaryConfig = require("./util.getDictionaryConfig");
+const getDictionaryDefinition = require("./util.getDictionaryDefinition");
 const validationResolver = require("./validate.index");
 
-function validatePayload(payload, dictionary, options) {
-  const ignoreValidationConfigKeys = [
-    "key",
-    "label",
-    "helpers",
-    "ignoreIsSanitized",
-    "ignoreSanitizer",
-    ...(options.ignoreValidationConfigKeys || []),
-  ];
-
+function validatePayload(payload, dictionary, option) {
   const payloadKeys = Object.keys(payload);
 
   for (let i = payloadKeys.length - 1; i >= 0; i--) {
     let payloadKey = payloadKeys[i];
 
-    let validationConfig = getDictionaryConfig(dictionary, payloadKey);
+    let definition = getDictionaryDefinition(dictionary, payloadKey);
 
-    if (!validationConfig)
-      throw new Error(`Missing data dictionary config for key: ${payloadKey}.`);
-
-    let validationConfigKeys = Object.keys(validationConfig).filter(
-      (validationConfigKey) =>
-        !ignoreValidationConfigKeys.includes(validationConfigKey)
+    let definitionKeys = Object.keys(definition).filter(
+      (definitionKey) =>
+        ![
+          "key",
+          "label",
+          "helpers",
+          "ignoreIsSanitized",
+          "ignoreSanitizer",
+          ...(option.ignoreDefinitionKeys || []),
+        ].includes(definitionKey)
     );
 
     let value = payload[payloadKey];
 
-    let label = validationConfig.label;
+    let label = definition.label;
 
     if (value !== null && value !== undefined && value !== "") {
-      for (let j = 0; j < validationConfigKeys.length; j++) {
-        let validationConfigKey = validationConfigKeys[j];
+      for (let j = 0; j < definitionKeys.length; j++) {
+        let definitionKey = definitionKeys[j];
 
         let validation = {
           ...validationResolver,
-          ...options.validationResolverCustom,
-        }[validationConfigKey];
+          ...option.validationResolver,
+        }[definitionKey];
 
         if (!validation)
-          throw new Error(`Missing validation: ${validationConfigKey}.`);
+          throw new Error(`Validation ("${definitionKey}") does not exist.`);
 
-        let setting = validationConfig[validationConfigKey];
+        let setting = definition[definitionKey];
 
         let match, matchLabel;
 
-        if (validationConfigKey === "match") {
+        if (definitionKey === "match") {
           match = payload[setting];
-          matchLabel = getDictionaryConfig(dictionary, setting).label;
+          matchLabel = getDictionaryDefinition(dictionary, setting).label;
         }
 
         validation({ setting, value, label, match, matchLabel });
       }
 
-      validationResolver.isSanitized({ value, label, ...validationConfig });
+      validationResolver.isSanitized({ value, label, ...definition });
     }
   }
 }
