@@ -111,21 +111,8 @@ const dictionary = [
     label: "typeArrayItem test",
     typeArrayItem: "number",
   },
-  // {
-  //   key: "whitelist_key",
-  //   label: "whitelist test",
-  //   whitelist: "",
-  // },
-  // {
-  //   key: "whitelistArray_key",
-  //   label: "whitelistArray test",
-  //   whitelistArray: "",
-  // },
-  // {
-  //   key: "whitelistKeys_key",
-  //   label: "whitelistKeys test",
-  //   whitelistKeys: "",
-  // },
+  // For whitelist validations see validate.whitelist.js
+  //
   // types...
   {
     key: "array_key",
@@ -243,10 +230,7 @@ const payload = {
   regex_key_noSpecialChar: "asd_", // "asd_!"
   regex_key_noWhitespace: "asd", // "asd "
   typeArrayItem_key: [123], // "asd"
-  // whitelist_key: "",
-  // whitelistArray_key: "",
-  // whitelistKeys_key: "",
-  // // types...
+  // types...
   array_key: [], // "[]"
   base64_key: "MTIz", // "MTIz."
   boolean_key: false, // "123"
