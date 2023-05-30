@@ -8,13 +8,16 @@ function validateIsSanitized({
   label,
 }) {
   if (!ignoreIsSanitized) {
-    if (type === "string" && value !== sanitized(value))
+    if (type === "string" && value !== sanitized(value)) {
       throw new Error(`${label} is a dirty value.`);
-
-    if (typeArrayItem === "string")
-      for (let i = value.length - 1; i >= 0; i--)
-        if (value[i] !== sanitized(value[i]))
-          throw new Error(`${label}: "${value[i]}" is a dirty value.`);
+    }
+    if (typeArrayItem === "string") {
+      for (let v of value) {
+        if (v !== sanitized(v)) {
+          throw new Error(`${label}: "${v}" is a dirty value.`);
+        }
+      }
+    }
   }
 }
 

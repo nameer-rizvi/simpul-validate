@@ -1,20 +1,16 @@
-const { isString, isStringValid, isValid } = require("simpul");
-const { stripHtml } = require("string-strip-html");
+const simpul = require("simpul");
+const stringStripHtml = require("string-strip-html");
 const getDictionaryDefinition = require("./util.getDictionaryDefinition");
 
 function hasRequiredValues(required, payload, dictionary) {
-  for (let i = required.length - 1; i >= 0; i--) {
-    let requiredKey = required[i];
-
+  for (let requiredKey of required) {
     let requiredValue = payload[requiredKey];
-
-    let hasRequiredValue = isString(requiredValue)
+    let hasRequiredValue = simpul.isString(requiredValue)
       ? requiredKey.toLowerCase().includes("html") ||
         requiredKey.toLowerCase().includes("rich_text")
-        ? isStringValid(stripHtml(requiredValue).result)
-        : isStringValid(requiredValue)
-      : isValid(requiredValue);
-
+        ? simpul.isStringValid(stringStripHtml.stripHtml(requiredValue).result)
+        : simpul.isStringValid(requiredValue)
+      : simpul.isValid(requiredValue);
     if (!hasRequiredValue) {
       const { label } = getDictionaryDefinition(dictionary, requiredKey);
       throw new Error(`${label} is required.`);

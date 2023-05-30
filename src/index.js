@@ -1,30 +1,34 @@
-const { isArrayValid, isObject } = require("simpul");
+const simpul = require("simpul");
 const validatePayload = require("./util.validatePayload");
 const hasRequiredValues = require("./util.hasRequiredValues");
 const sanitizePayload = require("./util.sanitizePayload");
 
-const validate = (dictionary, option) => (payload, required) => {
-  if (!isArrayValid(dictionary))
-    throw new Error("Dictionary (array of definitions) is required.");
+function simpul_validate_init(dictionary, option = {}) {
+  return function simpul_validate(payload, required) {
+    if (!simpul.isArrayValid(dictionary)) {
+      throw new Error("Dictionary (array of definitions) is required.");
+    }
 
-  if (!isObject(payload)) throw new Error("Payload must be an object.");
+    if (!simpul.isObject(payload)) {
+      throw new Error("Payload must be an object.");
+    }
 
-  validatePayload(payload, dictionary, option);
+    if (simpul.isObjectValid(payload)) {
+      validatePayload(payload, dictionary, option);
+    }
 
-  if (required) hasRequiredValues(required, payload, dictionary);
+    if (simpul.isArrayValid(required)) {
+      hasRequiredValues(required, payload, dictionary);
+    }
 
-  const sanitizedPayload = sanitizePayload(
-    payload,
-    option.DOMPurifyOptions,
-    dictionary
-  );
+    const sanitizedPayload = sanitizePayload(
+      payload,
+      option.DOMPurifyOptions,
+      dictionary
+    );
 
-  return sanitizedPayload;
-};
+    return sanitizedPayload;
+  };
+}
 
-module.exports = (dictionary, option = {}) => {
-  if (option.async) {
-    return async (payload, required) =>
-      validate(dictionary, option)(payload, required);
-  } else return validate(dictionary, option);
-};
+module.exports = simpul_validate_init;

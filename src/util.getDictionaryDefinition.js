@@ -1,13 +1,12 @@
-const { capitalize } = require("simpul");
+const simpul = require("simpul");
 
 function getDictionaryDefinition(dictionary, key) {
-  for (let i = 0; i < dictionary.length; i++)
-    if (dictionary[i]?.key === key)
-      return {
-        ...dictionary[i],
-        label: capitalize(dictionary[i].label || key),
-      };
-
+  for (let definition of dictionary) {
+    if (definition?.key === key) {
+      definition.label = simpul.capitalize(definition.label || key);
+      return definition;
+    }
+  }
   throw new Error(`Dictionary definition with key ("${key}") does not exist.`);
 }
 

@@ -1,5 +1,5 @@
 const safeR = require("safe-regex");
-const { isString } = require("simpul");
+const simpul = require("simpul");
 
 const resolver = {
   email: {
@@ -17,22 +17,17 @@ const resolver = {
 };
 
 function validateRegex({ setting, value, label }) {
-  for (let i = 0; i < setting.length; i++) {
-    let regex = setting[i];
+  for (let regex of setting) {
     if (!safeR(value)) {
       throw new Error(label + " is forbidden.. please try something else.");
     } else {
-      let config = isString(regex) ? resolver[regex] : regex;
-
+      let config = simpul.isString(regex) ? resolver[regex] : regex;
       if (!config)
         throw new Error(`Missing regex config for: ${regex.r || regex}.`);
-
       if (!config.r)
         throw new Error(`Missing regex.r for: ${regex.r || regex}.`);
-
       if (!config.warning)
         throw new Error(`Missing regex.warning for: ${regex.r || regex}.`);
-
       if (!config.r.test(value)) throw new Error(`${label} ${config.warning}.`);
     }
   }

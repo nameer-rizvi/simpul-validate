@@ -208,16 +208,16 @@ const dictionary = [
 
 const payload = {
   // validations...
-  blacklist_key: " this that ", // "other"
+  blacklist_key: " this that  ", // "other"
   blacklistArray_key: ["this", "that"], // "other"
   blacklistKeys_key: { this: "this_value", that: "that_value" }, // other: "other_value"
-  isSanitized_key: `<img src="x">`, // "<img src=x onerror=alert(1)//>"
+  isSanitized_key: '<img src="x">', // "<img src=x onerror=alert(1)//>"
   match_key: "this",
   match_key2: "this", // "that"
   max_key: 3, // 4
   maxLength_key: "123", // "1234"
   maxLengthArray_key: [1, 2, 3], // [1, 2, 3, 4]
-  maxLengthArrayItem_key: ["123", "123", "123"], // ["123", "123", "124"]
+  maxLengthArrayItem_key: ["123", "123", "123"], // ["123", "123", "1234"]
   maxLengthHTML_key: "<p>123</p>", // "<p>1234</p>"
   maxWords_key: " 1 2 3 ", // " 1 2 3 4"
   maxWordsHTML_key: "<p> 1 2 3 </p>", // "<p> 1 2 3 4</p>"
@@ -229,7 +229,7 @@ const payload = {
   regex_key_email: "asd@asd.com", // "asd"
   regex_key_noSpecialChar: "asd_", // "asd_!"
   regex_key_noWhitespace: "asd", // "asd "
-  typeArrayItem_key: [123], // "asd"
+  typeArrayItem_key: ["123"], // "asd"
   // types...
   array_key: [], // "[]"
   base64_key: "MTIz", // "MTIz."
@@ -260,6 +260,4 @@ try {
   console.log(error);
 }
 
-simpul_validate(dictionary, { async: true })(payload, required)
-  .then(console.log)
-  .catch(console.log);
+// To test validate.whitelist.js, see file.
