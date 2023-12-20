@@ -1,6 +1,6 @@
 {
   "name": "simpul-validate",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Async validation middleware.",
   "main": "src/index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   "dependencies": {
     "safe-regex": "^2.1.1",
     "sanitized": "^1.2.0",
-    "simpul": "^0.9.6",
+    "simpul": "^0.9.7",
     "string-strip-html": "8.5.0"
   }
 }
