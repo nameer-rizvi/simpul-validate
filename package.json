@@ -1,6 +1,6 @@
 {
   "name": "simpul-validate",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Async validation middleware.",
   "main": "src/index.js",
   "scripts": {
@@ -17,14 +17,12 @@
   ],
   "author": "Nameer Rizvi (https://github.com/nameer-rizvi)",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nameer-rizvi/simpul-validate/issues"
-  },
+  "bugs": "https://github.com/nameer-rizvi/simpul-validate/issues",
   "homepage": "https://github.com/nameer-rizvi/simpul-validate#readme",
   "dependencies": {
     "safe-regex": "^2.1.1",
-    "sanitized": "^1.2.1",
-    "simpul": "^1.0.5",
+    "sanitized": "^1.2.3",
+    "simpul": "^1.0.8",
     "string-strip-html": "8.5.0"
   }
 }
