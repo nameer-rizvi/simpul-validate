@@ -1,6 +1,6 @@
 {
   "name": "simpul-validate",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Async validation middleware.",
   "main": "src/index.js",
   "scripts": {
@@ -23,8 +23,8 @@
   "homepage": "https://github.com/nameer-rizvi/simpul-validate#readme",
   "dependencies": {
     "safe-regex": "^2.1.1",
-    "sanitized": "^1.2.4",
-    "simpul": "^1.0.9",
+    "sanitized": "1.2.1",
+    "simpul": "^1.1.0",
     "string-strip-html": "8.5.0"
   }
 }
