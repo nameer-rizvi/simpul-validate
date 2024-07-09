@@ -98,6 +98,11 @@ const dictionary = [
     regex: ["email"],
   },
   {
+    key: "regex_key_website",
+    label: "regex test website",
+    regex: ["website"],
+  },
+  {
     key: "regex_key_noSpecialChar",
     label: "regex test noSpecialChar",
     regex: ["noSpecialChar"],
@@ -108,9 +113,14 @@ const dictionary = [
     regex: ["noWhitespace"],
   },
   {
-    key: "typeArrayItem_key",
-    label: "typeArrayItem test",
-    typeArrayItem: "number",
+    key: "regex_key_onlyLetters",
+    label: "regex test onlyLetters",
+    regex: ["onlyLetters"],
+  },
+  {
+    key: "regex_key_onlyNumbers",
+    label: "regex test onlyNumbers",
+    regex: ["onlyNumbers"],
   },
   // For whitelist validations see validate.whitelist.js
   //
@@ -205,6 +215,11 @@ const dictionary = [
     label: "valid type test",
     type: "valid",
   },
+  {
+    key: "typeArrayItem_key",
+    label: "typeArrayItem test",
+    typeArrayItem: "number",
+  },
 ];
 
 const payload = {
@@ -228,9 +243,11 @@ const payload = {
   minWords_key: " 1 2 3 ", // " 1 2  "
   minWordsHTML_key: "<p> 1 2 3 </p>", // "<p> 1 2  </p>"
   regex_key_email: "asd@asd.com", // "asd"
+  regex_key_website: "http://google.com", // "google"
   regex_key_noSpecialChar: "asd_", // "asd_!"
   regex_key_noWhitespace: "asd", // "asd "
-  typeArrayItem_key: ["123"], // "asd"
+  regex_key_onlyLetters: "asd", // "asd1"
+  regex_key_onlyNumbers: "123", // "123a"
   // types...
   array_key: [], // "[]"
   base64_key: "MTIz", // "MTIz."
@@ -243,14 +260,14 @@ const payload = {
   http_key: "http://website.com", // "123"
   json_key: { key: "value" }, // ""
   jsonString_key: `{"key":"value"}`, // "undefined"
-  jwt_key:
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c", // "asd"
+  jwt_key: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c`, // "asd"
   number_key: 123, // "123"
   object_key: { key: "value" }, // "123"
   regex_key: new RegExp(), // "123"
   string_key: "123", // 123
-  stringOrArray_key: ["123"], // ""
+  stringOrArray_key: [""], // ""
   valid_key: "123", // ""
+  typeArrayItem_key: ["123"], // "asd"
 };
 
 const required = dictionary.map((i) => i.key);
