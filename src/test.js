@@ -21,6 +21,7 @@ const dictionary = [
     key: "isSanitized_key",
     label: "isSanitized test",
     type: "string",
+    // ignoreIsSanitized: true,
   },
   {
     key: "match_key",

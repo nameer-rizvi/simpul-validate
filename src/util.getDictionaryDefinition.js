@@ -1,7 +1,7 @@
 const simpul = require("simpul");
 
 function getDictionaryDefinition(dictionary, key) {
-  for (let definition of dictionary) {
+  for (const definition of dictionary) {
     if (definition?.key === key) {
       definition.label = simpul.capitalize(definition.label || key);
       return definition;
