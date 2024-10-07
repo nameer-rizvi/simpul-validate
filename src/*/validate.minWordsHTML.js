@@ -1,5 +1,5 @@
 const simpul = require("simpul");
-const stringStripHtml = require("string-strip-html");
+// import * as stringStripHtml from "string-strip-html";
 
 function validateMinWordsHTML({ value, setting, label }) {
   const v = simpul.stringlength.word(stringStripHtml.stripHtml(value).result);

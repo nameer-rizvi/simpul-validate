@@ -1,4 +1,4 @@
-const stringStripHtml = require("string-strip-html");
+// import * as stringStripHtml from "string-strip-html";
 
 function validateMaxLengthHTML({ value, setting, label }) {
   if (stringStripHtml.stripHtml(value).result.length > setting) {
