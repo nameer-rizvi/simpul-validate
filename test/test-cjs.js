@@ -4,7 +4,6 @@ const dictionary = [
   { key: "foo" },
   { key: "foo_html", ignoreSanitizer: false, ignoreSanitizerValidation: true },
   { key: "dte" },
-  { key: "thing" },
 ];
 
 const payload = {
@@ -13,6 +12,6 @@ const payload = {
   dte: new Date(),
 };
 
-simpul_validate(dictionary)(payload);
+simpul_validate(dictionary)(payload, ["dte"]);
 
 console.log({ payload });

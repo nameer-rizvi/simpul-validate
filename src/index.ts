@@ -15,27 +15,17 @@ function initializer(dictionary: Definition[], option: Options = {}) {
 
   // Validator.
 
-  return function validator(payload: undefined | Object, required: string[]) {
+  return function validator(payload: Object, required: string[]) {
     // Payload.
 
-    if (typeof payload === "undefined") {
+    if (payload === undefined) {
       return;
     } else if (!simpul.isObject(payload)) {
       throw new Error("Payload must be an object.");
     }
 
     for (const [key, value] of Object.entries(payload)) {
-      // Definition.
-
-      const definition = dictionary[dictionary.findIndex((i) => i.key === key)];
-
-      if (typeof definition === "undefined") {
-        const error = `Dictionary definition with key ("${key}") does not exist.`;
-
-        throw new Error(error);
-      }
-
-      definition.label = simpul.capitalize(definition.label || key) || "";
+      const definition = getDefinition(dictionary, key);
 
       // Validation.
 
@@ -43,38 +33,22 @@ function initializer(dictionary: Definition[], option: Options = {}) {
         for (const [name, setting] of Object.entries(definition)) {
           const validation = { ...resolver, ...option.custom }[name];
 
-          if (typeof validation === "undefined") continue;
+          if (validation === undefined) continue;
 
           let matchV, matchD;
 
           if (name === "match") {
             matchV = payload[setting];
-
-            matchD = dictionary[dictionary.findIndex((i) => i.key === setting)];
+            matchD = getDefinition(dictionary, setting);
           }
 
           validation({
             setting,
             value,
-            label: definition.label,
+            label: definition.label || "",
             match: matchV,
-            matchLabel: matchD?.label,
+            matchLabel: matchD?.label || "",
           });
-        }
-      }
-
-      // Required.
-
-      if (required?.includes(key)) {
-        const isValue = simpul.isString(value)
-          ? key.toLowerCase().includes("html") ||
-            key.toLowerCase().includes("rich_text")
-            ? stringStripHtml.stripHtml(value).result.trim().length > 0
-            : value.trim().length > 0
-          : simpul.isValid(value);
-
-        if (isValue === false) {
-          throw new Error(`${definition.label} is required.`);
         }
       }
 
@@ -92,7 +66,33 @@ function initializer(dictionary: Definition[], option: Options = {}) {
         payload[key] = sanitizedValue;
       }
     }
+
+    // Required.
+
+    for (const requiredKey of required || []) {
+      const value = payload[requiredKey];
+
+      const isValue = simpul.isString(value)
+        ? requiredKey.toLowerCase().includes("html") ||
+          requiredKey.toLowerCase().includes("rich_text")
+          ? stringStripHtml.stripHtml(value).result.trim().length > 0
+          : value.trim().length > 0
+        : simpul.isValid(value);
+
+      if (isValue === false) {
+        const { label } = getDefinition(dictionary, requiredKey);
+        throw new Error(`${label} is required.`);
+      }
+    }
   };
+}
+
+function getDefinition(dictionary: Definition[], key: string): Definition {
+  const definition = dictionary[dictionary.findIndex((i) => i.key === key)];
+  if (definition === undefined) {
+    throw new Error(`Definition with key ("${key}") does not exist.`);
+  }
+  return { ...definition, label: simpul.capitalize(definition.label || key) };
 }
 
 export = initializer;

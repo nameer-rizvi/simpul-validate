@@ -38,50 +38,32 @@ function initializer(dictionary, option = {}) {
     // Validator.
     return function validator(payload, required) {
         // Payload.
-        if (typeof payload === "undefined") {
+        if (payload === undefined) {
             return;
         }
         else if (!simpul_1.default.isObject(payload)) {
             throw new Error("Payload must be an object.");
         }
         for (const [key, value] of Object.entries(payload)) {
-            // Definition.
-            const definition = dictionary[dictionary.findIndex((i) => i.key === key)];
-            if (typeof definition === "undefined") {
-                const error = `Dictionary definition with key ("${key}") does not exist.`;
-                throw new Error(error);
-            }
-            definition.label = simpul_1.default.capitalize(definition.label || key) || "";
+            const definition = getDefinition(dictionary, key);
             // Validation.
             if (simpul_1.default.isValid(value)) {
                 for (const [name, setting] of Object.entries(definition)) {
                     const validation = Object.assign(Object.assign({}, validate_index_1.default), option.custom)[name];
-                    if (typeof validation === "undefined")
+                    if (validation === undefined)
                         continue;
                     let matchV, matchD;
                     if (name === "match") {
                         matchV = payload[setting];
-                        matchD = dictionary[dictionary.findIndex((i) => i.key === setting)];
+                        matchD = getDefinition(dictionary, setting);
                     }
                     validation({
                         setting,
                         value,
-                        label: definition.label,
+                        label: definition.label || "",
                         match: matchV,
-                        matchLabel: matchD === null || matchD === void 0 ? void 0 : matchD.label,
+                        matchLabel: (matchD === null || matchD === void 0 ? void 0 : matchD.label) || "",
                     });
-                }
-            }
-            // Required.
-            if (required === null || required === void 0 ? void 0 : required.includes(key)) {
-                const isValue = simpul_1.default.isString(value)
-                    ? key.toLowerCase().includes("html") ||
-                        key.toLowerCase().includes("rich_text")
-                        ? stringStripHtml.stripHtml(value).result.trim().length > 0
-                        : value.trim().length > 0
-                    : simpul_1.default.isValid(value);
-                if (isValue === false) {
-                    throw new Error(`${definition.label} is required.`);
                 }
             }
             // Sanitize
@@ -95,6 +77,27 @@ function initializer(dictionary, option = {}) {
                 payload[key] = sanitizedValue;
             }
         }
+        // Required.
+        for (const requiredKey of required || []) {
+            const value = payload[requiredKey];
+            const isValue = simpul_1.default.isString(value)
+                ? requiredKey.toLowerCase().includes("html") ||
+                    requiredKey.toLowerCase().includes("rich_text")
+                    ? stringStripHtml.stripHtml(value).result.trim().length > 0
+                    : value.trim().length > 0
+                : simpul_1.default.isValid(value);
+            if (isValue === false) {
+                const { label } = getDefinition(dictionary, requiredKey);
+                throw new Error(`${label} is required.`);
+            }
+        }
     };
+}
+function getDefinition(dictionary, key) {
+    const definition = dictionary[dictionary.findIndex((i) => i.key === key)];
+    if (definition === undefined) {
+        throw new Error(`Definition with key ("${key}") does not exist.`);
+    }
+    return Object.assign(Object.assign({}, definition), { label: simpul_1.default.capitalize(definition.label || key) });
 }
 module.exports = initializer;
