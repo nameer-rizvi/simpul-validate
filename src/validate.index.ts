@@ -1,6 +1,6 @@
 import blacklist from "./validate.blacklist";
 import blacklistKeys from "./validate.blacklistKeys";
-// import match from "./validate.match";
+import match from "./validate.match";
 // import max from "./validate.max";
 // import maxLength from "./validate.maxLength";
 // import maxLengthArray from "./validate.maxLengthArray";
@@ -23,7 +23,7 @@ import blacklistKeys from "./validate.blacklistKeys";
 export default {
   blacklist,
   blacklistKeys,
-  // match,
+  match,
   // max,
   // maxLength,
   // maxLengthArray,
