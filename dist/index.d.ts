@@ -1,3 +1,3 @@
-import { DictionaryItem, Options, Object } from "./util.interfaces";
-declare function initializer(dictionary?: DictionaryItem[], option?: Options): (payload: Object | undefined, required: string[]) => void;
+import { Definition, Options, Object } from "./util.interfaces";
+declare function initializer(dictionary: Definition[], option?: Options): (payload: undefined | Object, required: string[]) => void;
 export = initializer;

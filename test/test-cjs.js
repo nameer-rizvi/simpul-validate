@@ -2,25 +2,17 @@ const simpul_validate = require("../dist");
 
 const dictionary = [
   { key: "foo" },
-  { key: "foo_html", ignoreSanitizer: true },
+  { key: "foo_html", ignoreSanitizer: false, ignoreSanitizerValidation: true },
   { key: "dte" },
+  { key: "thing" },
 ];
 
-const payload = { foo: "bar", foo_html: "<svg><g/onload=alert(2)//<p>" };
+const payload = {
+  foo: "bar",
+  foo_html: "<svg><g/onload=alert(2)//<p>",
+  dte: new Date(),
+};
 
-simpul_validate(dictionary)(payload, ["foo", "dte"]);
+simpul_validate(dictionary)(payload);
 
-console.log(payload);
-
-// const dictionary = [{ key: "foo", ignoreSanitizer: true }, { key: "bar" }];
-
-// const payload = {
-//   dte: new Date(),
-//   fnc: () => {
-//     console.log("damn!");
-//   },
-// };
-
-// simpul_validate(dictionary)(payload, ["bar"]);
-
-// console.log(payload);
+console.log({ payload });
