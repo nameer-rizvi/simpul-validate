@@ -1,6 +1,5 @@
 import blacklist from "./validate.blacklist";
-// import blacklistKeys from "./validate.blacklistKeys";
-// import isSanitized from "./validate.isSanitized";
+import blacklistKeys from "./validate.blacklistKeys";
 // import match from "./validate.match";
 // import max from "./validate.max";
 // import maxLength from "./validate.maxLength";
@@ -23,8 +22,7 @@ import blacklist from "./validate.blacklist";
 
 export default {
   blacklist,
-  // blacklistKeys,
-  // isSanitized,
+  blacklistKeys,
   // match,
   // max,
   // maxLength,

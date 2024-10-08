@@ -13,6 +13,7 @@ const dictionary = [
   { key: "blacklistArrayExactArray", blacklist: { exact: ["BaR"] } },
   { key: "blacklistArrayLooseString", blacklist: { loose: "BaR" } },
   { key: "blacklistArrayLooseArray", blacklist: { loose: ["BaR"] } },
+  { key: "blacklistKeys", blacklistKeys: ["bar"] },
 ];
 
 const payloadPass = {
@@ -28,6 +29,7 @@ const payloadPass = {
   blacklistArrayExactArray: ["foo"],
   blacklistArrayLooseString: ["foo"],
   blacklistArrayLooseArray: ["foo"],
+  blacklistKeys: { foo: "bar" },
 };
 
 const payloadFail = {
@@ -43,6 +45,7 @@ const payloadFail = {
   // blacklistArrayExactArray: ["BaR"],
   // blacklistArrayLooseString: ["bar"],
   // blacklistArrayLooseArray: ["bar"],
+  // blacklistKeys: { bar: "foo" },
 };
 
 Object.assign(payloadPass, payloadFail);
