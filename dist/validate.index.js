@@ -4,7 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const validate_blacklist_1 = __importDefault(require("./validate.blacklist"));
-// import blacklistArray from "./validate.blacklistArray";
 // import blacklistKeys from "./validate.blacklistKeys";
 // import isSanitized from "./validate.isSanitized";
 // import match from "./validate.match";
@@ -28,7 +27,6 @@ const validate_blacklist_1 = __importDefault(require("./validate.blacklist"));
 // import whitelistKeys from "./validate.whitelistKeys";
 exports.default = {
     blacklist: validate_blacklist_1.default,
-    // blacklistArray,
     // blacklistKeys,
     // isSanitized,
     // match,

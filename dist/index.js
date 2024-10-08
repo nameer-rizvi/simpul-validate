@@ -27,8 +27,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 const simpul_1 = __importDefault(require("simpul"));
 const validate_index_1 = __importDefault(require("./validate.index"));
-const stringStripHtml = __importStar(require("string-strip-html"));
 const sanitized_1 = __importDefault(require("sanitized"));
+const stringStripHtml = __importStar(require("string-strip-html"));
 function initializer(dictionary, option = {}) {
     // Dictionary.
     if (!simpul_1.default.isArray(dictionary)) {
@@ -38,10 +38,9 @@ function initializer(dictionary, option = {}) {
     // Validator.
     return function validator(payload, required) {
         // Payload.
-        if (payload === undefined) {
+        if (payload === undefined)
             return;
-        }
-        else if (!simpul_1.default.isObject(payload)) {
+        if (!simpul_1.default.isObject(payload)) {
             throw new Error("Payload must be an object.");
         }
         for (const [key, value] of Object.entries(payload)) {

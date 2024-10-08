@@ -1,9 +1,12 @@
 export interface Definition {
   key: string;
   label?: string;
+  blacklist?:
+    | string
+    | string[]
+    | { exact?: string | string[]; loose?: string | string[] };
   ignoreSanitizer?: boolean;
   ignoreSanitizerValidation?: boolean;
-  // [key: string]: any;
 }
 
 export interface Options {

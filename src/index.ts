@@ -1,8 +1,8 @@
 import { Definition, Options, Object } from "./util.interfaces";
 import simpul from "simpul";
 import resolver from "./validate.index";
-import * as stringStripHtml from "string-strip-html";
 import sanitized from "sanitized";
+import * as stringStripHtml from "string-strip-html";
 
 function initializer(dictionary: Definition[], option: Options = {}) {
   // Dictionary.
@@ -18,9 +18,9 @@ function initializer(dictionary: Definition[], option: Options = {}) {
   return function validator(payload: Object, required: string[]) {
     // Payload.
 
-    if (payload === undefined) {
-      return;
-    } else if (!simpul.isObject(payload)) {
+    if (payload === undefined) return;
+
+    if (!simpul.isObject(payload)) {
       throw new Error("Payload must be an object.");
     }
 

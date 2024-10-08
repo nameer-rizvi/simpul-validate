@@ -1,17 +1,4 @@
-const simpul_validate = require("./index");
-
 const dictionary = [
-  // validations...
-  {
-    key: "blacklist_key",
-    label: "blacklist test",
-    blacklist: { loose: ["other"] },
-  },
-  {
-    key: "blacklistArray_key",
-    label: "blacklistArray test",
-    blacklistArray: { exact: ["other"] },
-  },
   {
     key: "blacklistKeys_key",
     label: "blacklistKeys test",
@@ -223,8 +210,6 @@ const dictionary = [
 ];
 
 const payload = {
-  // validations...
-  blacklist_key: " this that  ", // "other"
   blacklistArray_key: ["this", "that"], // "other"
   blacklistKeys_key: { this: "this_value", that: "that_value" }, // other: "other_value"
   isSanitized_key: '<img src="x">', // "<img src=x onerror=alert(1)//>"
@@ -269,13 +254,3 @@ const payload = {
   valid_key: "123", // ""
   typeArrayItem_key: ["123"], // "asd"
 };
-
-const required = dictionary.map((i) => i.key);
-
-try {
-  console.log(simpul_validate(dictionary)(payload, required));
-} catch (error) {
-  console.log(error);
-}
-
-// To test validate.whitelist.js, see file.

@@ -1,5 +1,4 @@
 import blacklist from "./validate.blacklist";
-// import blacklistArray from "./validate.blacklistArray";
 // import blacklistKeys from "./validate.blacklistKeys";
 // import isSanitized from "./validate.isSanitized";
 // import match from "./validate.match";
@@ -24,7 +23,6 @@ import blacklist from "./validate.blacklist";
 
 export default {
   blacklist,
-  // blacklistArray,
   // blacklistKeys,
   // isSanitized,
   // match,
