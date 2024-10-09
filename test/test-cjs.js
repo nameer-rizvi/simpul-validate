@@ -22,6 +22,18 @@ const dictionary = [
     key: "maxLengthArrayItem",
     maxLengthArrayItem: 3,
   },
+  {
+    key: "maxLengthHTML",
+    maxLengthHTML: 3,
+  },
+  {
+    key: "maxWords",
+    maxWords: 3,
+  },
+  {
+    key: "maxWordsHTML",
+    maxWordsHTML: 3,
+  },
 ].map((i) => ({ ...i, key: `value_${i.key}` }));
 
 // required keys
@@ -34,6 +46,9 @@ const payloadPass = {
   maxLength: "abc",
   maxLengthArray: [1, 2, 3],
   maxLengthArrayItem: ["a", "ab", "abc"],
+  maxLengthHTML: "<p>abc</p>",
+  maxWords: "a b c",
+  maxWordsHTML: "<p> a b c </p>",
 };
 
 // values - fail
@@ -43,6 +58,9 @@ const payloadFail = {
   // maxLength: "abcd",
   // maxLengthArray: [1, 2, 3, 4],
   // maxLengthArrayItem: ["a", "ab", "abc", "abcd"],
+  // maxLengthHTML: "<p>abcd</p>",
+  // maxWords: "a b c d",
+  // maxWordsHTML: "<p> a b c d </p>",
 };
 
 // values injection

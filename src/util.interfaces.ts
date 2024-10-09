@@ -6,6 +6,9 @@ export interface Definition {
   maxLength?: number;
   maxLengthArray?: number;
   maxLengthArrayItem?: number;
+  maxLengthHTML?: number;
+  maxWords?: number;
+  maxWordsHTML?: number;
   ignoreSanitizer?: boolean;
   ignoreSanitizerValidation?: boolean;
 }
