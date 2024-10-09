@@ -3,8 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// import blacklist from "./validate.blacklist";
-// import blacklistKeys from "./validate.blacklistKeys";
+const validate_blacklist_1 = __importDefault(require("./validate.blacklist"));
+const validate_blacklistKeys_1 = __importDefault(require("./validate.blacklistKeys"));
 const validate_match_1 = __importDefault(require("./validate.match"));
 const validate_max_1 = __importDefault(require("./validate.max"));
 const validate_maxArrayItem_1 = __importDefault(require("./validate.maxArrayItem"));
@@ -28,8 +28,8 @@ const validate_typeArrayItem_1 = __importDefault(require("./validate.typeArrayIt
 const validate_whitelist_1 = __importDefault(require("./validate.whitelist"));
 const validate_whitelistKeys_1 = __importDefault(require("./validate.whitelistKeys"));
 exports.default = {
-    // blacklist,
-    // blacklistKeys,
+    blacklist: validate_blacklist_1.default,
+    blacklistKeys: validate_blacklistKeys_1.default,
     match: validate_match_1.default,
     max: validate_max_1.default,
     maxArrayItem: validate_maxArrayItem_1.default,

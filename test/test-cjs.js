@@ -3,6 +3,26 @@ const simpul_validate = require("../dist");
 // settings
 const dictionary = [
   {
+    key: "blacklistStringString",
+    blacklist: "def",
+  },
+  {
+    key: "blacklistStringArray",
+    blacklist: ["d", "e", "f"],
+  },
+  {
+    key: "blacklistArrayString",
+    blacklist: "def",
+  },
+  {
+    key: "blacklistArrayArray",
+    blacklist: ["d", "e", "f"],
+  },
+  {
+    key: "blacklistKeys",
+    blacklistKeys: "d",
+  },
+  {
     key: "match",
     match: "value_maxLength",
   },
@@ -93,26 +113,6 @@ const dictionary = [
   {
     key: "regexWebsite",
     regex: ["website"],
-  },
-  {
-    key: "whitelistStringString",
-    whitelist: "abc",
-  },
-  {
-    key: "whitelistStringArray",
-    whitelist: ["a", "b", "c"],
-  },
-  {
-    key: "whitelistArrayString",
-    whitelist: "abc",
-  },
-  {
-    key: "whitelistArrayArray",
-    whitelist: ["a", "b", "c"],
-  },
-  {
-    key: "whitelistKeys",
-    whitelistKeys: ["a", "b", "c"],
   },
   {
     key: "typeArray",
@@ -210,6 +210,26 @@ const dictionary = [
     key: "typeArrayItem",
     typeArrayItem: "number",
   },
+  {
+    key: "whitelistStringString",
+    whitelist: "abc",
+  },
+  {
+    key: "whitelistStringArray",
+    whitelist: ["a", "b", "c"],
+  },
+  {
+    key: "whitelistArrayString",
+    whitelist: "abc",
+  },
+  {
+    key: "whitelistArrayArray",
+    whitelist: ["a", "b", "c"],
+  },
+  {
+    key: "whitelistKeys",
+    whitelistKeys: ["a", "b", "c"],
+  },
 ].map((i) => ({ ...i, key: `value_${i.key}` }));
 
 // required keys
@@ -217,6 +237,11 @@ const required = dictionary.map((i) => i.key);
 
 // values - pass
 const payloadPass = {
+  blacklistStringString: "abc",
+  blacklistStringArray: "abc",
+  blacklistArrayString: ["abc"],
+  blacklistArrayArray: ["a", "b", "c"],
+  blacklistKeys: { a: null, b: null, c: null },
   match: "abc",
   max: 10,
   maxArrayItem: [1, 2, 3],
@@ -240,11 +265,6 @@ const payloadPass = {
   regexOnlyLetters: "abc",
   regexOnlyNumbers: "123",
   regexWebsite: "http://website.com",
-  whitelistStringString: "abc",
-  whitelistStringArray: "a",
-  whitelistArrayString: ["abc"],
-  whitelistArrayArray: ["a", "b", "c"],
-  whitelistKeys: { a: null, b: null, c: null },
   typeArray: [],
   typeBase64: "MQ==",
   typeBoolean: false,
@@ -274,10 +294,20 @@ const payloadPass = {
   typeUrl: "www.website.com",
   typeValid: "abc",
   typeArrayItem: [1, 2, 3],
+  whitelistStringString: "abc",
+  whitelistStringArray: "a",
+  whitelistArrayString: ["abc"],
+  whitelistArrayArray: ["a", "b", "c"],
+  whitelistKeys: { a: null, b: null, c: null },
 };
 
 // values - fail
 const payloadFail = {
+  // blacklistStringString: "abcdef",
+  // blacklistStringArray: "def",
+  // blacklistArrayString: ["def"],
+  // blacklistArrayArray: ["d", "e", "f"],
+  // blacklistKeys: { a: null, b: null, c: null, d: null },
   // match: "abcd",
   // max: 11,
   // maxArrayItem: [1, 2, 3, 4],
@@ -301,11 +331,6 @@ const payloadFail = {
   // regexOnlyLetters: "123",
   // regexOnlyNumbers: "abc",
   // regexWebsite: "website",
-  // whitelistStringString: "abcd",
-  // whitelistStringArray: "ab",
-  // whitelistArrayString: ["abc", "d"],
-  // whitelistArrayArray: ["a", "b", "c", "d"],
-  // whitelistKeys: { a: null, b: null, c: null, d: null },
   // typeArray: "",
   // typeBase64: 123,
   // typeBoolean: "asd",
@@ -335,6 +360,11 @@ const payloadFail = {
   // typeUrl: "abc",
   // typeValid: null,
   // typeArrayItem: ["a", "b", "c"],
+  // whitelistStringString: "abcd",
+  // whitelistStringArray: "ab",
+  // whitelistArrayString: ["abc", "d"],
+  // whitelistArrayArray: ["a", "b", "c", "d"],
+  // whitelistKeys: { a: null, b: null, c: null, d: null },
 };
 
 // values injection

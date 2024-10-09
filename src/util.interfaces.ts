@@ -1,15 +1,8 @@
-// blacklist?:
-//   | string
-//   | string[]
-//   | { exact?: string | string[]; loose?: string | string[] };
-// blacklistKeys?:
-//   | string
-//   | string[]
-//   | { exact?: string | string[]; loose?: string | string[] };
-
 export interface Definition {
   key: string;
   label?: string;
+  blacklist?: string | string[];
+  blacklistKeys?: string | string[];
   match?: string;
   max?: number;
   maxArrayItem?: number;

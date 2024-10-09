@@ -1,6 +1,8 @@
 export interface Definition {
     key: string;
     label?: string;
+    blacklist?: string | string[];
+    blacklistKeys?: string | string[];
     match?: string;
     max?: number;
     maxArrayItem?: number;
