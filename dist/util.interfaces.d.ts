@@ -1,6 +1,7 @@
 export interface Definition {
     key: string;
     label?: string;
+    match?: string;
     max?: number;
     maxArrayItem?: number;
     maxLength?: number;
@@ -17,6 +18,10 @@ export interface Definition {
     minLengthHTML?: number;
     minWords?: number;
     minWordsHTML?: number;
+    regex?: (string | {
+        r: RegExp;
+        warning?: string;
+    })[];
     ignoreSanitizer?: boolean;
     ignoreSanitizerValidation?: boolean;
 }

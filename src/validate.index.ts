@@ -1,6 +1,6 @@
 // import blacklist from "./validate.blacklist";
 // import blacklistKeys from "./validate.blacklistKeys";
-// import match from "./validate.match";
+import match from "./validate.match";
 import max from "./validate.max";
 import maxArrayItem from "./validate.maxArrayItem";
 import maxLength from "./validate.maxLength";
@@ -17,7 +17,7 @@ import minLengthArrayItem from "./validate.minLengthArrayItem";
 import minLengthHTML from "./validate.minLengthHTML";
 import minWords from "./validate.minWords";
 import minWordsHTML from "./validate.minWordsHTML";
-// import regex from "./validate.regex";
+import regex from "./validate.regex";
 // import type from "./validate.type";
 // import typeArrayItem from "./validate.typeArrayItem";
 // import whitelist from "./validate.whitelist";
@@ -27,7 +27,7 @@ import minWordsHTML from "./validate.minWordsHTML";
 export default {
   // blacklist,
   // blacklistKeys,
-  // match,
+  match,
   max,
   maxArrayItem,
   maxLength,
@@ -44,7 +44,7 @@ export default {
   minLengthHTML,
   minWords,
   minWordsHTML,
-  // regex,
+  regex,
   // type,
   // typeArrayItem,
   // whitelist,

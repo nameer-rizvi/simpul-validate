@@ -3,6 +3,10 @@ const simpul_validate = require("../dist");
 // settings
 const dictionary = [
   {
+    key: "match",
+    match: "value_maxLength",
+  },
+  {
     key: "max",
     max: 10,
   },
@@ -66,6 +70,30 @@ const dictionary = [
     key: "minWordsHTML",
     minWordsHTML: 3,
   },
+  {
+    key: "regexEmail",
+    regex: ["email"],
+  },
+  {
+    key: "regexNoSpecialChar",
+    regex: ["noSpecialChar"],
+  },
+  {
+    key: "regexNoWhitespace",
+    regex: ["noWhitespace"],
+  },
+  {
+    key: "regexOnlyLetters",
+    regex: ["onlyLetters"],
+  },
+  {
+    key: "regexOnlyNumbers",
+    regex: ["onlyNumbers"],
+  },
+  {
+    key: "regexWebsite",
+    regex: ["website"],
+  },
 ].map((i) => ({ ...i, key: `value_${i.key}` }));
 
 // required keys
@@ -73,6 +101,7 @@ const required = dictionary.map((i) => i.key);
 
 // values - pass
 const payloadPass = {
+  match: "abc",
   max: 10,
   maxArrayItem: [1, 2, 3],
   maxLength: "abc",
@@ -89,10 +118,17 @@ const payloadPass = {
   minLengthHTML: "<p>abc</p>",
   minWords: "a b c",
   minWordsHTML: "<p> a b c </p>",
+  regexEmail: "email@email.com",
+  regexNoSpecialChar: "abc123_",
+  regexNoWhitespace: "abc123",
+  regexOnlyLetters: "abc",
+  regexOnlyNumbers: "123",
+  regexWebsite: "http://website.com",
 };
 
 // values - fail
 const payloadFail = {
+  // match: "abcd",
   // max: 11,
   // maxArrayItem: [1, 2, 3, 4],
   // maxLength: "abcd",
@@ -108,7 +144,13 @@ const payloadFail = {
   // minLengthArrayItem: ["abcde", "abcd", "abc", "ab"],
   // minLengthHTML: "<p>ab</p>",
   // minWords: "a b",
-  minWordsHTML: "<p> a b </p>",
+  // minWordsHTML: "<p> a b </p>",
+  // regexEmail: "email",
+  // regexNoSpecialChar: "abc123_!",
+  // regexNoWhitespace: "abc\n123",
+  // regexOnlyLetters: "123",
+  // regexOnlyNumbers: "abc",
+  // regexWebsite: "website",
 };
 
 // values injection

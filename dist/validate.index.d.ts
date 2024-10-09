@@ -1,3 +1,4 @@
+import match from "./validate.match";
 import max from "./validate.max";
 import maxArrayItem from "./validate.maxArrayItem";
 import maxLength from "./validate.maxLength";
@@ -14,7 +15,9 @@ import minLengthArrayItem from "./validate.minLengthArrayItem";
 import minLengthHTML from "./validate.minLengthHTML";
 import minWords from "./validate.minWords";
 import minWordsHTML from "./validate.minWordsHTML";
+import regex from "./validate.regex";
 declare const _default: {
+    match: typeof match;
     max: typeof max;
     maxArrayItem: typeof maxArrayItem;
     maxLength: typeof maxLength;
@@ -31,5 +34,6 @@ declare const _default: {
     minLengthHTML: typeof minLengthHTML;
     minWords: typeof minWords;
     minWordsHTML: typeof minWordsHTML;
+    regex: typeof regex;
 };
 export default _default;
