@@ -114,6 +114,102 @@ const dictionary = [
     key: "whitelistKeys",
     whitelistKeys: ["a", "b", "c"],
   },
+  {
+    key: "typeArray",
+    type: "array",
+  },
+  {
+    key: "typeBase64",
+    type: "base64",
+  },
+  {
+    key: "typeBoolean",
+    type: "boolean",
+  },
+  {
+    key: "typeBooleanAny",
+    type: "booleanAny",
+  },
+  {
+    key: "typeBooleanNumber",
+    type: "booleanNumber",
+  },
+  {
+    key: "typeBooleanString",
+    type: "booleanString",
+  },
+  {
+    key: "typeCreditCard",
+    type: "creditCard",
+  },
+  {
+    key: "typeDate",
+    type: "date",
+  },
+  {
+    key: "typeEmail",
+    type: "email",
+  },
+  {
+    key: "typeFunction",
+    type: "function",
+  },
+  {
+    key: "typeHttp",
+    type: "http",
+  },
+  {
+    key: "typeJson",
+    type: "json",
+  },
+  {
+    key: "typeJsonString",
+    type: "jsonString",
+  },
+  {
+    key: "typeJwt",
+    type: "jwt",
+  },
+  {
+    key: "typeModule",
+    type: "module",
+  },
+  {
+    key: "typeNumber",
+    type: "number",
+  },
+  {
+    key: "typeObject",
+    type: "object",
+  },
+  {
+    key: "typePhoneNumber",
+    type: "phoneNumber",
+  },
+  {
+    key: "typeRegex",
+    type: "regex",
+  },
+  {
+    key: "typeString",
+    type: "string",
+  },
+  {
+    key: "typeStringOrArray",
+    type: "stringOrArray",
+  },
+  {
+    key: "typeUrl",
+    type: "url",
+  },
+  {
+    key: "typeValid",
+    type: "valid",
+  },
+  {
+    key: "typeArrayItem",
+    typeArrayItem: "number",
+  },
 ].map((i) => ({ ...i, key: `value_${i.key}` }));
 
 // required keys
@@ -149,6 +245,35 @@ const payloadPass = {
   whitelistArrayString: ["abc"],
   whitelistArrayArray: ["a", "b", "c"],
   whitelistKeys: { a: null, b: null, c: null },
+  typeArray: [],
+  typeBase64: "MQ==",
+  typeBoolean: false,
+  typeBooleanAny: "false",
+  typeBooleanNumber: 0,
+  typeBooleanString: "false",
+  typeCreditCard: [
+    "4111111111111111", // Visa
+    "5500000000000004", // MasterCard
+    "340000000000009", // AMEX
+    "6011000000000004", // Discover
+  ][0],
+  typeDate: new Date(),
+  typeEmail: "email@email.com",
+  typeFunction: () => {},
+  typeHttp: "http://website.com",
+  typeJson: [],
+  typeJsonString: "[]",
+  typeJwt: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c`,
+  typeModule: "simpul",
+  typeNumber: 1,
+  typeObject: {},
+  typePhoneNumber: "1111111111",
+  typeRegex: new RegExp(/regexp/),
+  typeString: "abc",
+  typeStringOrArray: [""],
+  typeUrl: "www.website.com",
+  typeValid: "abc",
+  typeArrayItem: [1, 2, 3],
 };
 
 // values - fail
@@ -180,7 +305,36 @@ const payloadFail = {
   // whitelistStringArray: "ab",
   // whitelistArrayString: ["abc", "d"],
   // whitelistArrayArray: ["a", "b", "c", "d"],
-  whitelistKeys: { a: null, b: null, c: null, d: null },
+  // whitelistKeys: { a: null, b: null, c: null, d: null },
+  // typeArray: "",
+  // typeBase64: 123,
+  // typeBoolean: "asd",
+  // typeBooleanAny: 123,
+  // typeBooleanNumber: "asd",
+  // typeBooleanString: 123,
+  // typeCreditCard: [
+  //   "1234567890123456", // Random number
+  //   "411111111111111", // Too short
+  //   "5500000000000000000", // Too long
+  //   "abcdefg123456789", // Invalid characters
+  // ][0],
+  // typeDate: "abc",
+  // typeEmail: "abc",
+  // typeFunction: "abc",
+  // typeHttp: "abc",
+  // typeJson: () => {},
+  // typeJsonString: "]abc[",
+  // typeJwt: "abc",
+  // typeModule: "abc",
+  // typeNumber: "abc",
+  // typeObject: "abc",
+  // typePhoneNumber: "abc",
+  // typeRegex: "abc",
+  // typeString: 123,
+  // typeStringOrArray: 123,
+  // typeUrl: "abc",
+  // typeValid: null,
+  // typeArrayItem: ["a", "b", "c"],
 };
 
 // values injection

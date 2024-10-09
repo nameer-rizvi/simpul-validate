@@ -18,8 +18,8 @@ import minLengthHTML from "./validate.minLengthHTML";
 import minWords from "./validate.minWords";
 import minWordsHTML from "./validate.minWordsHTML";
 import regex from "./validate.regex";
-// import type from "./validate.type";
-// import typeArrayItem from "./validate.typeArrayItem";
+import _type from "./validate.type";
+import typeArrayItem from "./validate.typeArrayItem";
 import whitelist from "./validate.whitelist";
 import whitelistKeys from "./validate.whitelistKeys";
 
@@ -44,8 +44,8 @@ export default {
   minWords,
   minWordsHTML,
   regex,
-  // type,
-  // typeArrayItem,
+  type: _type,
+  typeArrayItem,
   whitelist,
   whitelistKeys,
 };

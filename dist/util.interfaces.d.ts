@@ -18,10 +18,12 @@ export interface Definition {
     minLengthHTML?: number;
     minWords?: number;
     minWordsHTML?: number;
-    regex?: (string | {
+    regex?: ("email" | "noSpecialChar" | "noWhitespace" | "onlyLetters" | "onlyNumbers" | "website" | {
         r: RegExp;
         warning?: string;
     })[];
+    type?: "array" | "base64" | "boolean" | "booleanAny" | "booleanNumber" | "booleanString" | "creditCard" | "date" | "email" | "function" | "http" | "json" | "jsonString" | "jwt" | "module" | "number" | "object" | "phoneNumber" | "regex" | "string" | "stringOrArray" | "url" | "valid";
+    typeArrayItem?: "array" | "base64" | "boolean" | "booleanAny" | "booleanNumber" | "booleanString" | "creditCard" | "date" | "email" | "function" | "http" | "json" | "jsonString" | "jwt" | "module" | "number" | "object" | "phoneNumber" | "regex" | "string" | "stringOrArray" | "url" | "valid";
     whitelist?: string | string[];
     whitelistKeys?: string | string[];
     ignoreSanitizer?: boolean;

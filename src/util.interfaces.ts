@@ -1,3 +1,12 @@
+// blacklist?:
+//   | string
+//   | string[]
+//   | { exact?: string | string[]; loose?: string | string[] };
+// blacklistKeys?:
+//   | string
+//   | string[]
+//   | { exact?: string | string[]; loose?: string | string[] };
+
 export interface Definition {
   key: string;
   label?: string;
@@ -18,20 +27,68 @@ export interface Definition {
   minLengthHTML?: number;
   minWords?: number;
   minWordsHTML?: number;
-  regex?: (string | { r: RegExp; warning?: string })[];
+  regex?: (
+    | "email"
+    | "noSpecialChar"
+    | "noWhitespace"
+    | "onlyLetters"
+    | "onlyNumbers"
+    | "website"
+    | { r: RegExp; warning?: string }
+  )[];
+  type?:
+    | "array"
+    | "base64"
+    | "boolean"
+    | "booleanAny"
+    | "booleanNumber"
+    | "booleanString"
+    | "creditCard"
+    | "date"
+    | "email"
+    | "function"
+    | "http"
+    | "json"
+    | "jsonString"
+    | "jwt"
+    | "module"
+    | "number"
+    | "object"
+    | "phoneNumber"
+    | "regex"
+    | "string"
+    | "stringOrArray"
+    | "url"
+    | "valid";
+  typeArrayItem?:
+    | "array"
+    | "base64"
+    | "boolean"
+    | "booleanAny"
+    | "booleanNumber"
+    | "booleanString"
+    | "creditCard"
+    | "date"
+    | "email"
+    | "function"
+    | "http"
+    | "json"
+    | "jsonString"
+    | "jwt"
+    | "module"
+    | "number"
+    | "object"
+    | "phoneNumber"
+    | "regex"
+    | "string"
+    | "stringOrArray"
+    | "url"
+    | "valid";
   whitelist?: string | string[];
   whitelistKeys?: string | string[];
   ignoreSanitizer?: boolean;
   ignoreSanitizerValidation?: boolean;
 }
-// blacklist?:
-//   | string
-//   | string[]
-//   | { exact?: string | string[]; loose?: string | string[] };
-// blacklistKeys?:
-//   | string
-//   | string[]
-//   | { exact?: string | string[]; loose?: string | string[] };
 
 export interface Validation {
   setting: any;

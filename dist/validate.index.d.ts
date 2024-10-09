@@ -16,6 +16,8 @@ import minLengthHTML from "./validate.minLengthHTML";
 import minWords from "./validate.minWords";
 import minWordsHTML from "./validate.minWordsHTML";
 import regex from "./validate.regex";
+import _type from "./validate.type";
+import typeArrayItem from "./validate.typeArrayItem";
 import whitelist from "./validate.whitelist";
 import whitelistKeys from "./validate.whitelistKeys";
 declare const _default: {
@@ -37,6 +39,8 @@ declare const _default: {
     minWords: typeof minWords;
     minWordsHTML: typeof minWordsHTML;
     regex: typeof regex;
+    type: typeof _type;
+    typeArrayItem: typeof typeArrayItem;
     whitelist: typeof whitelist;
     whitelistKeys: typeof whitelistKeys;
 };
