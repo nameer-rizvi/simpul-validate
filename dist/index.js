@@ -66,7 +66,11 @@ function initializer(dictionary, option = {}) {
                 }
             }
             // Sanitize
-            if (definition.ignoreSanitizer !== true) {
+            const sanitizeValue = definition.ignoreSanitizer !== true &&
+                (simpul_1.default.isString(value) ||
+                    simpul_1.default.isArray(value) ||
+                    simpul_1.default.isObject(value));
+            if (sanitizeValue) {
                 const sanitizedValue = (0, sanitized_1.default)(value, option.domPurifyOptions || {});
                 if (definition.ignoreSanitizerValidation !== true) {
                     if (JSON.stringify(value) !== JSON.stringify(sanitizedValue)) {

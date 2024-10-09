@@ -1,19 +1,13 @@
 export interface Definition {
     key: string;
     label?: string;
-    blacklist?: string | string[] | {
-        exact?: string | string[];
-        loose?: string | string[];
-    };
+    max?: number;
+    maxArrayItem?: number;
+    maxLength?: number;
+    maxLengthArray?: number;
+    maxLengthArrayItem?: number;
     ignoreSanitizer?: boolean;
     ignoreSanitizerValidation?: boolean;
-}
-export interface Options {
-    custom?: object;
-    domPurifyOptions?: object;
-}
-export interface Object {
-    [key: string]: any;
 }
 export interface Validation {
     setting: any;
@@ -21,4 +15,11 @@ export interface Validation {
     label: string;
     match?: string;
     matchLabel?: string;
+}
+export interface Options {
+    custom?: object;
+    domPurifyOptions?: object;
+}
+export interface Object {
+    [key: string]: any;
 }

@@ -54,7 +54,13 @@ function initializer(dictionary: Definition[], option: Options = {}) {
 
       // Sanitize
 
-      if (definition.ignoreSanitizer !== true) {
+      const sanitizeValue =
+        definition.ignoreSanitizer !== true &&
+        (simpul.isString(value) ||
+          simpul.isArray(value) ||
+          simpul.isObject(value));
+
+      if (sanitizeValue) {
         const sanitizedValue = sanitized(value, option.domPurifyOptions || {});
 
         if (definition.ignoreSanitizerValidation !== true) {

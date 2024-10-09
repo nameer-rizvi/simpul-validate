@@ -1,64 +1,69 @@
 const simpul_validate = require("../dist");
 
+// settings
 const dictionary = [
-  { key: "blacklistString", blacklist: "bar" },
-  { key: "blacklistStringArray", blacklist: ["bar"] },
-  { key: "blacklistStringExactString", blacklist: { exact: "BaR" } },
-  { key: "blacklistStringExactArray", blacklist: { exact: ["BaR"] } },
-  { key: "blacklistStringLooseString", blacklist: { loose: "BaR" } },
-  { key: "blacklistStringLooseArray", blacklist: { loose: ["BaR"] } },
-  { key: "blacklistArray", blacklist: "bar" },
-  { key: "blacklistArrayArray", blacklist: ["bar"] },
-  { key: "blacklistArrayExactString", blacklist: { exact: "BaR" } },
-  { key: "blacklistArrayExactArray", blacklist: { exact: ["BaR"] } },
-  { key: "blacklistArrayLooseString", blacklist: { loose: "BaR" } },
-  { key: "blacklistArrayLooseArray", blacklist: { loose: ["BaR"] } },
-  { key: "blacklistKeys", blacklistKeys: ["bar"] },
-  { key: "match", match: "blacklistString" },
-];
+  {
+    key: "max",
+    max: 10,
+  },
+  {
+    key: "maxArrayItem",
+    maxArrayItem: 3,
+  },
+  {
+    key: "maxLength",
+    maxLength: 3,
+  },
+  {
+    key: "maxLengthArray",
+    maxLengthArray: 3,
+  },
+  {
+    key: "maxLengthArrayItem",
+    maxLengthArrayItem: 3,
+  },
+].map((i) => ({ ...i, key: `value_${i.key}` }));
 
+// required keys
+const required = dictionary.map((i) => i.key);
+
+// values - pass
 const payloadPass = {
-  blacklistString: "foo",
-  blacklistStringArray: "foo",
-  blacklistStringExactString: "foo",
-  blacklistStringExactArray: "foo",
-  blacklistStringLooseString: "foo",
-  blacklistStringLooseArray: "foo",
-  blacklistArray: ["foo"],
-  blacklistArrayArray: ["foo"],
-  blacklistArrayExactString: ["foo"],
-  blacklistArrayExactArray: ["foo"],
-  blacklistArrayLooseString: ["foo"],
-  blacklistArrayLooseArray: ["foo"],
-  blacklistKeys: { foo: "bar" },
-  match: "foo",
+  max: 10,
+  maxArrayItem: [1, 2, 3],
+  maxLength: "abc",
+  maxLengthArray: [1, 2, 3],
+  maxLengthArrayItem: ["a", "ab", "abc"],
 };
 
+// values - fail
 const payloadFail = {
-  // blacklistString: "bar",
-  // blacklistStringArray: "bar",
-  // blacklistStringExactString: "BaR",
-  // blacklistStringExactArray: "BaR",
-  // blacklistStringLooseString: "bar",
-  // blacklistStringLooseArray: "bar",
-  // blacklistArray: ["bar"],
-  // blacklistArrayArray: ["bar"],
-  // blacklistArrayExactString: ["BaR"],
-  // blacklistArrayExactArray: ["BaR"],
-  // blacklistArrayLooseString: ["bar"],
-  // blacklistArrayLooseArray: ["bar"],
-  // blacklistKeys: { bar: "foo" },
-  // match: "bar",
+  // max: 11,
+  // maxArrayItem: [1, 2, 3, 4],
+  // maxLength: "abcd",
+  // maxLengthArray: [1, 2, 3, 4],
+  // maxLengthArrayItem: ["a", "ab", "abc", "abcd"],
 };
+
+// values injection
+
+changeKey(payloadPass);
+
+changeKey(payloadFail);
 
 Object.assign(payloadPass, payloadFail);
 
+// try simpul validate
 try {
-  simpul_validate(dictionary)(
-    payloadPass,
-    dictionary.map((i) => i.key),
-  );
+  simpul_validate(dictionary)(payloadPass, required);
   console.log(payloadPass);
 } catch (error) {
   console.error(error);
+}
+
+function changeKey(payload) {
+  Object.keys(payload).forEach((key) => {
+    payload[`value_${key}`] = payload[key];
+    delete payload[key];
+  });
 }
