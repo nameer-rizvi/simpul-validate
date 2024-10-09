@@ -9,8 +9,11 @@ import maxLengthArrayItem from "./validate.maxLengthArrayItem";
 import maxLengthHTML from "./validate.maxLengthHTML";
 import maxWords from "./validate.maxWords";
 import maxWordsHTML from "./validate.maxWordsHTML";
-// import min from "./validate.min";
+import min from "./validate.min";
+// import minArrayItem from "./validate.minArrayItem";
 // import minLength from "./validate.minLength";
+// import minLengthArray from "./validate.minLengthArray";
+// import minLengthArrayItem from "./validate.minLengthArrayItem";
 // import minLengthHTML from "./validate.minLengthHTML";
 // import minWords from "./validate.minWords";
 // import minWordsHTML from "./validate.minWordsHTML";
@@ -33,8 +36,11 @@ export default {
   maxLengthHTML,
   maxWords,
   maxWordsHTML,
-  // min,
+  min,
+  // minArrayItem,
   // minLength,
+  // minLengthArray,
+  // minLengthArrayItem,
   // minLengthHTML,
   // minWords,
   // minWordsHTML,

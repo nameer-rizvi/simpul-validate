@@ -9,6 +9,7 @@ export interface Definition {
     maxLengthHTML?: number;
     maxWords?: number;
     maxWordsHTML?: number;
+    min?: number;
     ignoreSanitizer?: boolean;
     ignoreSanitizerValidation?: boolean;
 }

@@ -14,8 +14,11 @@ const validate_maxLengthArrayItem_1 = __importDefault(require("./validate.maxLen
 const validate_maxLengthHTML_1 = __importDefault(require("./validate.maxLengthHTML"));
 const validate_maxWords_1 = __importDefault(require("./validate.maxWords"));
 const validate_maxWordsHTML_1 = __importDefault(require("./validate.maxWordsHTML"));
-// import min from "./validate.min";
+const validate_min_1 = __importDefault(require("./validate.min"));
+// import minArrayItem from "./validate.minArrayItem";
 // import minLength from "./validate.minLength";
+// import minLengthArray from "./validate.minLengthArray";
+// import minLengthArrayItem from "./validate.minLengthArrayItem";
 // import minLengthHTML from "./validate.minLengthHTML";
 // import minWords from "./validate.minWords";
 // import minWordsHTML from "./validate.minWordsHTML";
@@ -37,8 +40,11 @@ exports.default = {
     maxLengthHTML: validate_maxLengthHTML_1.default,
     maxWords: validate_maxWords_1.default,
     maxWordsHTML: validate_maxWordsHTML_1.default,
-    // min,
+    min: validate_min_1.default,
+    // minArrayItem,
     // minLength,
+    // minLengthArray,
+    // minLengthArrayItem,
     // minLengthHTML,
     // minWords,
     // minWordsHTML,

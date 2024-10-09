@@ -6,6 +6,7 @@ import maxLengthArrayItem from "./validate.maxLengthArrayItem";
 import maxLengthHTML from "./validate.maxLengthHTML";
 import maxWords from "./validate.maxWords";
 import maxWordsHTML from "./validate.maxWordsHTML";
+import min from "./validate.min";
 declare const _default: {
     max: typeof max;
     maxArrayItem: typeof maxArrayItem;
@@ -15,5 +16,6 @@ declare const _default: {
     maxLengthHTML: typeof maxLengthHTML;
     maxWords: typeof maxWords;
     maxWordsHTML: typeof maxWordsHTML;
+    min: typeof min;
 };
 export default _default;

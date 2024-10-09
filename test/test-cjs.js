@@ -34,6 +34,10 @@ const dictionary = [
     key: "maxWordsHTML",
     maxWordsHTML: 3,
   },
+  {
+    key: "min",
+    min: 3,
+  },
 ].map((i) => ({ ...i, key: `value_${i.key}` }));
 
 // required keys
@@ -49,6 +53,7 @@ const payloadPass = {
   maxLengthHTML: "<p>abc</p>",
   maxWords: "a b c",
   maxWordsHTML: "<p> a b c </p>",
+  min: 3,
 };
 
 // values - fail
@@ -61,6 +66,7 @@ const payloadFail = {
   // maxLengthHTML: "<p>abcd</p>",
   // maxWords: "a b c d",
   // maxWordsHTML: "<p> a b c d </p>",
+  // min: 2,
 };
 
 // values injection
