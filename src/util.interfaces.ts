@@ -19,6 +19,8 @@ export interface Definition {
   minWords?: number;
   minWordsHTML?: number;
   regex?: (string | { r: RegExp; warning?: string })[];
+  whitelist?: string | string[];
+  whitelistKeys?: string | string[];
   ignoreSanitizer?: boolean;
   ignoreSanitizerValidation?: boolean;
 }

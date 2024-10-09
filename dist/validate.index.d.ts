@@ -16,6 +16,8 @@ import minLengthHTML from "./validate.minLengthHTML";
 import minWords from "./validate.minWords";
 import minWordsHTML from "./validate.minWordsHTML";
 import regex from "./validate.regex";
+import whitelist from "./validate.whitelist";
+import whitelistKeys from "./validate.whitelistKeys";
 declare const _default: {
     match: typeof match;
     max: typeof max;
@@ -35,5 +37,7 @@ declare const _default: {
     minWords: typeof minWords;
     minWordsHTML: typeof minWordsHTML;
     regex: typeof regex;
+    whitelist: typeof whitelist;
+    whitelistKeys: typeof whitelistKeys;
 };
 export default _default;

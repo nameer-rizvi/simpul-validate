@@ -25,9 +25,8 @@ const validate_minWordsHTML_1 = __importDefault(require("./validate.minWordsHTML
 const validate_regex_1 = __importDefault(require("./validate.regex"));
 // import type from "./validate.type";
 // import typeArrayItem from "./validate.typeArrayItem";
-// import whitelist from "./validate.whitelist";
-// import whitelistArray from "./validate.whitelistArray";
-// import whitelistKeys from "./validate.whitelistKeys";
+const validate_whitelist_1 = __importDefault(require("./validate.whitelist"));
+const validate_whitelistKeys_1 = __importDefault(require("./validate.whitelistKeys"));
 exports.default = {
     // blacklist,
     // blacklistKeys,
@@ -51,7 +50,6 @@ exports.default = {
     regex: validate_regex_1.default,
     // type,
     // typeArrayItem,
-    // whitelist,
-    // whitelistArray,
-    // whitelistKeys,
+    whitelist: validate_whitelist_1.default,
+    whitelistKeys: validate_whitelistKeys_1.default,
 };

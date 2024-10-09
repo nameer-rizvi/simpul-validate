@@ -94,6 +94,26 @@ const dictionary = [
     key: "regexWebsite",
     regex: ["website"],
   },
+  {
+    key: "whitelistStringString",
+    whitelist: "abc",
+  },
+  {
+    key: "whitelistStringArray",
+    whitelist: ["a", "b", "c"],
+  },
+  {
+    key: "whitelistArrayString",
+    whitelist: "abc",
+  },
+  {
+    key: "whitelistArrayArray",
+    whitelist: ["a", "b", "c"],
+  },
+  {
+    key: "whitelistKeys",
+    whitelistKeys: ["a", "b", "c"],
+  },
 ].map((i) => ({ ...i, key: `value_${i.key}` }));
 
 // required keys
@@ -124,6 +144,11 @@ const payloadPass = {
   regexOnlyLetters: "abc",
   regexOnlyNumbers: "123",
   regexWebsite: "http://website.com",
+  whitelistStringString: "abc",
+  whitelistStringArray: "a",
+  whitelistArrayString: ["abc"],
+  whitelistArrayArray: ["a", "b", "c"],
+  whitelistKeys: { a: null, b: null, c: null },
 };
 
 // values - fail
@@ -151,6 +176,11 @@ const payloadFail = {
   // regexOnlyLetters: "123",
   // regexOnlyNumbers: "abc",
   // regexWebsite: "website",
+  // whitelistStringString: "abcd",
+  // whitelistStringArray: "ab",
+  // whitelistArrayString: ["abc", "d"],
+  // whitelistArrayArray: ["a", "b", "c", "d"],
+  whitelistKeys: { a: null, b: null, c: null, d: null },
 };
 
 // values injection

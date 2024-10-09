@@ -20,9 +20,8 @@ import minWordsHTML from "./validate.minWordsHTML";
 import regex from "./validate.regex";
 // import type from "./validate.type";
 // import typeArrayItem from "./validate.typeArrayItem";
-// import whitelist from "./validate.whitelist";
-// import whitelistArray from "./validate.whitelistArray";
-// import whitelistKeys from "./validate.whitelistKeys";
+import whitelist from "./validate.whitelist";
+import whitelistKeys from "./validate.whitelistKeys";
 
 export default {
   // blacklist,
@@ -47,7 +46,6 @@ export default {
   regex,
   // type,
   // typeArrayItem,
-  // whitelist,
-  // whitelistArray,
-  // whitelistKeys,
+  whitelist,
+  whitelistKeys,
 };

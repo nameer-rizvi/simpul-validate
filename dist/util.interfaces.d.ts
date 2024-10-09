@@ -22,6 +22,8 @@ export interface Definition {
         r: RegExp;
         warning?: string;
     })[];
+    whitelist?: string | string[];
+    whitelistKeys?: string | string[];
     ignoreSanitizer?: boolean;
     ignoreSanitizerValidation?: boolean;
 }
