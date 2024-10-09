@@ -38,6 +38,34 @@ const dictionary = [
     key: "min",
     min: 3,
   },
+  {
+    key: "minArrayItem",
+    minArrayItem: 3,
+  },
+  {
+    key: "minLength",
+    minLength: 3,
+  },
+  {
+    key: "minLengthArray",
+    minLengthArray: 3,
+  },
+  {
+    key: "minLengthArrayItem",
+    minLengthArrayItem: 3,
+  },
+  {
+    key: "minLengthHTML",
+    minLengthHTML: 3,
+  },
+  {
+    key: "minWords",
+    minWords: 3,
+  },
+  {
+    key: "minWordsHTML",
+    minWordsHTML: 3,
+  },
 ].map((i) => ({ ...i, key: `value_${i.key}` }));
 
 // required keys
@@ -54,6 +82,13 @@ const payloadPass = {
   maxWords: "a b c",
   maxWordsHTML: "<p> a b c </p>",
   min: 3,
+  minArrayItem: [5, 4, 3],
+  minLength: "123",
+  minLengthArray: [1, 2, 3],
+  minLengthArrayItem: ["abcde", "abcd", "abc"],
+  minLengthHTML: "<p>abc</p>",
+  minWords: "a b c",
+  minWordsHTML: "<p> a b c </p>",
 };
 
 // values - fail
@@ -67,6 +102,13 @@ const payloadFail = {
   // maxWords: "a b c d",
   // maxWordsHTML: "<p> a b c d </p>",
   // min: 2,
+  // minArrayItem: [5, 4, 3, 2],
+  // minLength: "12",
+  // minLengthArray: [1, 2],
+  // minLengthArrayItem: ["abcde", "abcd", "abc", "ab"],
+  // minLengthHTML: "<p>ab</p>",
+  // minWords: "a b",
+  minWordsHTML: "<p> a b </p>",
 };
 
 // values injection

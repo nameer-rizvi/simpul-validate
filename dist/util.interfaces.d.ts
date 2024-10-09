@@ -10,6 +10,13 @@ export interface Definition {
     maxWords?: number;
     maxWordsHTML?: number;
     min?: number;
+    minArrayItem?: number;
+    minLength?: number;
+    minLengthArray?: number;
+    minLengthArrayItem?: number;
+    minLengthHTML?: number;
+    minWords?: number;
+    minWordsHTML?: number;
     ignoreSanitizer?: boolean;
     ignoreSanitizerValidation?: boolean;
 }

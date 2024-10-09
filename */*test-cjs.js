@@ -1,5 +1,3 @@
-const simpul_validate = require("../dist");
-
 // settings
 const dictionary = [
   { key: "blacklistString", blacklist: "bar" },
@@ -52,15 +50,3 @@ const payloadFail = {
   // blacklistKeys: { bar: "foo" },
   // match: "bar",
 };
-
-Object.assign(payloadPass, payloadFail);
-
-try {
-  simpul_validate(dictionary)(
-    payloadPass,
-    dictionary.map((i) => i.key),
-  );
-  console.log(payloadPass);
-} catch (error) {
-  console.error(error);
-}

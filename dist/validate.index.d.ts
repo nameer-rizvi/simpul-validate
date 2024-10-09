@@ -7,6 +7,13 @@ import maxLengthHTML from "./validate.maxLengthHTML";
 import maxWords from "./validate.maxWords";
 import maxWordsHTML from "./validate.maxWordsHTML";
 import min from "./validate.min";
+import minArrayItem from "./validate.minArrayItem";
+import minLength from "./validate.minLength";
+import minLengthArray from "./validate.minLengthArray";
+import minLengthArrayItem from "./validate.minLengthArrayItem";
+import minLengthHTML from "./validate.minLengthHTML";
+import minWords from "./validate.minWords";
+import minWordsHTML from "./validate.minWordsHTML";
 declare const _default: {
     max: typeof max;
     maxArrayItem: typeof maxArrayItem;
@@ -17,5 +24,12 @@ declare const _default: {
     maxWords: typeof maxWords;
     maxWordsHTML: typeof maxWordsHTML;
     min: typeof min;
+    minArrayItem: typeof minArrayItem;
+    minLength: typeof minLength;
+    minLengthArray: typeof minLengthArray;
+    minLengthArrayItem: typeof minLengthArrayItem;
+    minLengthHTML: typeof minLengthHTML;
+    minWords: typeof minWords;
+    minWordsHTML: typeof minWordsHTML;
 };
 export default _default;

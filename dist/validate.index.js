@@ -15,13 +15,13 @@ const validate_maxLengthHTML_1 = __importDefault(require("./validate.maxLengthHT
 const validate_maxWords_1 = __importDefault(require("./validate.maxWords"));
 const validate_maxWordsHTML_1 = __importDefault(require("./validate.maxWordsHTML"));
 const validate_min_1 = __importDefault(require("./validate.min"));
-// import minArrayItem from "./validate.minArrayItem";
-// import minLength from "./validate.minLength";
-// import minLengthArray from "./validate.minLengthArray";
-// import minLengthArrayItem from "./validate.minLengthArrayItem";
-// import minLengthHTML from "./validate.minLengthHTML";
-// import minWords from "./validate.minWords";
-// import minWordsHTML from "./validate.minWordsHTML";
+const validate_minArrayItem_1 = __importDefault(require("./validate.minArrayItem"));
+const validate_minLength_1 = __importDefault(require("./validate.minLength"));
+const validate_minLengthArray_1 = __importDefault(require("./validate.minLengthArray"));
+const validate_minLengthArrayItem_1 = __importDefault(require("./validate.minLengthArrayItem"));
+const validate_minLengthHTML_1 = __importDefault(require("./validate.minLengthHTML"));
+const validate_minWords_1 = __importDefault(require("./validate.minWords"));
+const validate_minWordsHTML_1 = __importDefault(require("./validate.minWordsHTML"));
 // import regex from "./validate.regex";
 // import type from "./validate.type";
 // import typeArrayItem from "./validate.typeArrayItem";
@@ -41,13 +41,13 @@ exports.default = {
     maxWords: validate_maxWords_1.default,
     maxWordsHTML: validate_maxWordsHTML_1.default,
     min: validate_min_1.default,
-    // minArrayItem,
-    // minLength,
-    // minLengthArray,
-    // minLengthArrayItem,
-    // minLengthHTML,
-    // minWords,
-    // minWordsHTML,
+    minArrayItem: validate_minArrayItem_1.default,
+    minLength: validate_minLength_1.default,
+    minLengthArray: validate_minLengthArray_1.default,
+    minLengthArrayItem: validate_minLengthArrayItem_1.default,
+    minLengthHTML: validate_minLengthHTML_1.default,
+    minWords: validate_minWords_1.default,
+    minWordsHTML: validate_minWordsHTML_1.default,
     // regex,
     // type,
     // typeArrayItem,
