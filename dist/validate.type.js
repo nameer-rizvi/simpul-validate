@@ -14,6 +14,7 @@ const resolver = {
     creditCard: simpul_1.default.isCreditCardNumber,
     date: simpul_1.default.isDate,
     email: simpul_1.default.isEmail,
+    error: simpul_1.default.isError,
     function: simpul_1.default.isFunction,
     http: simpul_1.default.isHTTP,
     json: simpul_1.default.isJSON,
