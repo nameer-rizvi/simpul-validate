@@ -1,6 +1,6 @@
 {
   "name": "simpul-validate",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Async validation middleware.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -28,7 +28,7 @@
   "dependencies": {
     "safe-regex": "^2.1.1",
     "sanitized": "^1.2.6",
-    "simpul": "^1.2.4",
+    "simpul": "^1.2.6",
     "string-strip-html": "8.5.0"
   },
   "devDependencies": {
