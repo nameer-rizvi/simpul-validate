@@ -1,6 +1,10 @@
 "use strict";
-// import blacklist from "./validate.blacklist";
-// import blacklistKeys from "./validate.blacklistKeys";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const validate_blacklist_1 = __importDefault(require("./validate.blacklist"));
+const validate_blacklistKeys_1 = __importDefault(require("./validate.blacklistKeys"));
 // import match from "./validate.match";
 // import max from "./validate.max";
 // import maxArrayItem from "./validate.maxArrayItem";
@@ -23,30 +27,29 @@
 // import typeArrayItem from "./validate.typeArrayItem";
 // import whitelist from "./validate.whitelist";
 // import whitelistKeys from "./validate.whitelistKeys";
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
-// blacklist,
-// blacklistKeys,
-// match,
-// max,
-// maxArrayItem,
-// maxLength,
-// maxLengthArray,
-// maxLengthArrayItem,
-// maxLengthHTML,
-// maxWords,
-// maxWordsHTML,
-// min,
-// minArrayItem,
-// minLength,
-// minLengthArray,
-// minLengthArrayItem,
-// minLengthHTML,
-// minWords,
-// minWordsHTML,
-// regex,
-// type: _type,
-// typeArrayItem,
-// whitelist,
-// whitelistKeys,
+    blacklist: validate_blacklist_1.default,
+    blacklistKeys: validate_blacklistKeys_1.default,
+    // match,
+    // max,
+    // maxArrayItem,
+    // maxLength,
+    // maxLengthArray,
+    // maxLengthArrayItem,
+    // maxLengthHTML,
+    // maxWords,
+    // maxWordsHTML,
+    // min,
+    // minArrayItem,
+    // minLength,
+    // minLengthArray,
+    // minLengthArrayItem,
+    // minLengthHTML,
+    // minWords,
+    // minWordsHTML,
+    // regex,
+    // type: _type,
+    // typeArrayItem,
+    // whitelist,
+    // whitelistKeys,
 };

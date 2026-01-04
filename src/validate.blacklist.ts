@@ -1,0 +1,29 @@
+import { ValidationArgs } from "./interfaces";
+import simpul from "simpul";
+
+function validateBlacklist({ label, setting, value }: ValidationArgs) {
+  const values = normalize(value);
+  const settings = normalize(setting);
+  for (const v of values) {
+    for (const s of settings) {
+      if (v.includes(s)) {
+        throw new Error(`${label}: "${s}" is a reserved term.`);
+      }
+    }
+  }
+}
+
+function normalize(input: unknown): string[] {
+  if (simpul.isString(input)) {
+    return [input.toLowerCase()];
+  } else if (simpul.isArray(input)) {
+    const list: string[] = [];
+    for (const item of input.flat())
+      if (simpul.isString(item)) list.push(item.toLowerCase());
+    return list.flat();
+  } else {
+    return [];
+  }
+}
+
+export default validateBlacklist;

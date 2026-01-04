@@ -36,9 +36,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 const simpul_1 = __importDefault(require("simpul"));
-const validate_index_1 = __importDefault(require("./validate.index"));
 const sanitized_1 = __importDefault(require("sanitized"));
 const stringStripHtml = __importStar(require("string-strip-html"));
+const validate_index_1 = __importDefault(require("./validate.index"));
 function initializer(dictionary, option = {}) {
     const defMap = new Map();
     for (const definition of dictionary) {
