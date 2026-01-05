@@ -13,9 +13,16 @@ export interface Definition {
     readonly blacklistKeys?: StringOrArray;
     readonly match?: string;
     readonly max?: number;
-    readonly maxArrayItem?: number;
     readonly maxLength?: number;
     readonly maxLengthArray?: number;
+    readonly maxLengthString?: number;
+    readonly maxLengthHtml?: number;
+    readonly maxLengthValueArray?: number;
+    readonly maxLengthValueObject?: number;
+    readonly maxValueArray?: number;
+    readonly maxValueObject?: number;
+    readonly maxWords?: number;
+    readonly maxWordsHtml?: number;
 }
 export interface Options {
     readonly custom?: ValidationResolver;

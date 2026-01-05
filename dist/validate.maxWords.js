@@ -16,12 +16,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const validate_max_1 = __importDefault(require("./validate.max"));
 const simpul_1 = __importDefault(require("simpul"));
-function validateMaxArrayItem(_a) {
-    var { value: values } = _a, rest = __rest(_a, ["value"]);
-    if (simpul_1.default.isArray(values)) {
-        for (const value of values) {
-            (0, validate_max_1.default)(Object.assign(Object.assign({}, rest), { value, label: `${rest.label}: ${value}` }));
-        }
+function validateMaxWords(_a) {
+    var { label, value } = _a, rest = __rest(_a, ["label", "value"]);
+    if (simpul_1.default.isString(value)) {
+        const label2 = `${label}${simpul_1.default.delimiter}words`;
+        const value2 = simpul_1.default.stringLength.word(value);
+        (0, validate_max_1.default)(Object.assign({ label: label2, value: value2 }, rest));
     }
 }
-exports.default = validateMaxArrayItem;
+exports.default = validateMaxWords;

@@ -2,20 +2,23 @@ import blacklist from "./validate.blacklist";
 import blacklistKeys from "./validate.blacklistKeys";
 import match from "./validate.match";
 import max from "./validate.max";
-import maxArrayItem from "./validate.maxArrayItem";
 import maxLength from "./validate.maxLength";
-// import maxLengthArrayItem from "./validate.maxLengthArrayItem";
-// import maxLengthHTML from "./validate.maxLengthHTML";
-// import maxWords from "./validate.maxWords";
-// import maxWordsHTML from "./validate.maxWordsHTML";
+import maxLengthHtml from "./validate.maxLengthHtml";
+import maxLengthValueArray from "./validate.maxLengthValueArray";
+import maxLengthValueObject from "./validate.maxLengthValueObject";
+import maxValueArray from "./validate.maxValueArray";
+import maxValueObject from "./validate.maxValueObject";
+import maxWords from "./validate.maxWords";
+import maxWordsHtml from "./validate.maxWordsHtml";
 // import min from "./validate.min";
-// import minArrayItem from "./validate.minArrayItem";
 // import minLength from "./validate.minLength";
-// import minLengthArray from "./validate.minLengthArray";
-// import minLengthArrayItem from "./validate.minLengthArrayItem";
-// import minLengthHTML from "./validate.minLengthHTML";
+// import minLengthHtml from "./validate.minLengthHtml";
+// import minLengthValueArray from "./validate.minLengthValueArray";
+// import minLengthValueObject from "./validate.minLengthValueObject";
+// import minValueArray from "./validate.minValueArray";
+// import minValueObject from "./validate.minValueObject";
 // import minWords from "./validate.minWords";
-// import minWordsHTML from "./validate.minWordsHTML";
+// import minWordsHtml from "./validate.minWordsHtml";
 // import regex from "./validate.regex";
 // import _type from "./validate.type";
 // import typeArrayItem from "./validate.typeArrayItem";
@@ -27,21 +30,25 @@ export default {
   blacklistKeys,
   match,
   max,
-  maxArrayItem,
   maxLength,
   maxLengthArray: maxLength,
-  // maxLengthArrayItem,
-  // maxLengthHTML,
-  // maxWords,
-  // maxWordsHTML,
+  maxLengthString: maxLength,
+  maxLengthHtml,
+  maxLengthValueArray,
+  maxLengthValueObject,
+  maxValueArray,
+  maxValueObject,
+  maxWords,
+  maxWordsHtml,
   // min,
-  // minArrayItem,
   // minLength,
-  // minLengthArray,
-  // minLengthArrayItem,
-  // minLengthHTML,
+  // minLengthHtml,
+  // minLengthValueArray,
+  // minLengthValueObject,
+  // minValueArray,
+  // minValueObject,
   // minWords,
-  // minWordsHTML,
+  // minWordsHtml,
   // regex,
   // type: _type,
   // typeArrayItem,

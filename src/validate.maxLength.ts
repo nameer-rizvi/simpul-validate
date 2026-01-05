@@ -1,13 +1,12 @@
 import { ValidationArgs } from "./interfaces";
+import validateMax from "./validate.max";
 import simpul from "simpul";
 
-function validateMaxLength({ label, setting, value }: ValidationArgs) {
-  if (simpul.isStringOrArray(value) && simpul.isNumber(setting)) {
-    if (value.length > setting) {
-      const thing = simpul.isString(value) ? "characters" : "items";
-      const error = `${label} must be less than or equal to ${setting} ${thing}.`;
-      throw new Error(error);
-    }
+function validateMaxLength({ label, value, ...rest }: ValidationArgs) {
+  if (simpul.isStringOrArray(value)) {
+    const thing = simpul.isString(value) ? "characters" : "items";
+    const label2 = `${label}${simpul.delimiter}${thing}`;
+    validateMax({ label: label2, value: value.length, ...rest });
   }
 }
 
