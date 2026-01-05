@@ -43,6 +43,8 @@ export interface Definition {
     readonly minWordsHtml?: number;
     readonly regex?: ReadonlyArray<RegexRule | RegexRuleName>;
     readonly type?: ValueType;
+    readonly typeValueArray?: ValueType;
+    readonly typeValueObject?: ValueType;
 }
 export interface Options {
     readonly custom?: ValidationResolver;

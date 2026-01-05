@@ -21,8 +21,8 @@ import minWords from "./validate.minWords";
 import minWordsHtml from "./validate.minWordsHtml";
 import regex from "./validate.regex";
 import typeValidation from "./validate.type";
-// import typeValueArray from "./validate.typeValueArray";
-// import typeValueObject from "./validate.typeValueObject";
+import typeValueArray from "./validate.typeValueArray";
+import typeValueObject from "./validate.typeValueObject";
 // import whitelist from "./validate.whitelist";
 // import whitelistKeys from "./validate.whitelistKeys";
 
@@ -54,8 +54,8 @@ export default {
   minWordsHtml,
   regex,
   type: typeValidation,
-  // typeValueArray,
-  // typeValueObject,
+  typeValueArray,
+  typeValueObject,
   // whitelist,
   // whitelistKeys,
 };

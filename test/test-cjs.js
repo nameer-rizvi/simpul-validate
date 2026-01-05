@@ -333,6 +333,14 @@ const dictionary = [
     key: "type-valid",
     type: "valid",
   },
+  {
+    key: "typeValueArray",
+    typeValueArray: "string",
+  },
+  {
+    key: "typeValueObject",
+    typeValueObject: "string",
+  },
   // {
   //   key: "whitelistStringString",
   //   whitelist: "abc",
@@ -439,7 +447,8 @@ const payloadPass = {
   "type-stringSafe": "Safe_String-123",
   "type-url": "https://www.example.com",
   "type-valid": "anything",
-  // typeArrayItem: [1, 2, 3],
+  typeValueArray: ["a", "b", "c"],
+  typeValueObject: { key1: "a", key2: "b", key3: "c" },
   // whitelistStringString: "abc",
   // whitelistStringArray: "a",
   // whitelistArrayString: ["abc"],
@@ -531,6 +540,8 @@ const payloadFail = {
   // "type-stringSafe": "Unsafe!String@#",
   // "type-url": "htp:/example..com",
   // "type-valid": null,
+  // typeValueArray: ["a", "b", 3],
+  // typeValueObject: { key1: "a", key2: "b", key3: 3 },
   // whitelistStringString: "abcd",
   // whitelistStringArray: "ab",
   // whitelistArrayString: ["abc", "d"],

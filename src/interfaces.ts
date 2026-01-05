@@ -111,7 +111,8 @@ export interface Definition {
   readonly minWordsHtml?: number;
   readonly regex?: ReadonlyArray<RegexRule | RegexRuleName>;
   readonly type?: ValueType;
-  // readonly typeArrayItem?: ValueType;
+  readonly typeValueArray?: ValueType;
+  readonly typeValueObject?: ValueType;
   // readonly whitelist?: StringOrArray;
   // readonly whitelistKeys?: StringOrArray;
 }
