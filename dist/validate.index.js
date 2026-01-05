@@ -25,7 +25,7 @@ const validate_minValueObject_1 = __importDefault(require("./validate.minValueOb
 const validate_minWords_1 = __importDefault(require("./validate.minWords"));
 const validate_minWordsHtml_1 = __importDefault(require("./validate.minWordsHtml"));
 const validate_regex_1 = __importDefault(require("./validate.regex"));
-// import _type from "./validate.type";
+const validate_type_1 = __importDefault(require("./validate.type"));
 // import typeValueArray from "./validate.typeValueArray";
 // import typeValueObject from "./validate.typeValueObject";
 // import whitelist from "./validate.whitelist";
@@ -57,7 +57,7 @@ exports.default = {
     minWords: validate_minWords_1.default,
     minWordsHtml: validate_minWordsHtml_1.default,
     regex: validate_regex_1.default,
-    // type: _type,
+    type: validate_type_1.default,
     // typeValueArray,
     // typeValueObject,
     // whitelist,

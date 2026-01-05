@@ -20,7 +20,7 @@ import minValueObject from "./validate.minValueObject";
 import minWords from "./validate.minWords";
 import minWordsHtml from "./validate.minWordsHtml";
 import regex from "./validate.regex";
-// import _type from "./validate.type";
+import typeValidation from "./validate.type";
 // import typeValueArray from "./validate.typeValueArray";
 // import typeValueObject from "./validate.typeValueObject";
 // import whitelist from "./validate.whitelist";
@@ -53,7 +53,7 @@ export default {
   minWords,
   minWordsHtml,
   regex,
-  // type: _type,
+  type: typeValidation,
   // typeValueArray,
   // typeValueObject,
   // whitelist,

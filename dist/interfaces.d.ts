@@ -10,6 +10,7 @@ export type RegexRuleName = "alphaNumeric" | "countryCode" | "creditCard" | "cur
 export type RequiredList = readonly string[];
 export type StringOrArray<T = string> = T | readonly T[];
 export type ValidationResolver = Record<string, (args: ValidationArgs) => void>;
+export type ValueType = "array" | "arrayNonEmpty" | "arrayOrString" | "base64" | "boolean" | "booleanAny" | "booleanNumber" | "booleanString" | "creditCardNumber" | "date" | "email" | "error" | "function" | "http" | "json" | "jsonString" | "jwt" | "module" | "number" | "numberString" | "numberValid" | "numeric" | "object" | "objectNonEmpty" | "phoneNumber" | "regex" | "string" | "stringNonEmpty" | "stringOrArray" | "stringSafe" | "url" | "valid";
 export interface Definition {
     readonly key: string;
     readonly label?: string;
@@ -41,6 +42,7 @@ export interface Definition {
     readonly minWords?: number;
     readonly minWordsHtml?: number;
     readonly regex?: ReadonlyArray<RegexRule | RegexRuleName>;
+    readonly type?: ValueType;
 }
 export interface Options {
     readonly custom?: ValidationResolver;
