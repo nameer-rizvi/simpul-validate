@@ -341,26 +341,26 @@ const dictionary = [
     key: "typeValueObject",
     typeValueObject: "string",
   },
-  // {
-  //   key: "whitelistStringString",
-  //   whitelist: "abc",
-  // },
-  // {
-  //   key: "whitelistStringArray",
-  //   whitelist: ["a", "b", "c"],
-  // },
-  // {
-  //   key: "whitelistArrayString",
-  //   whitelist: "abc",
-  // },
-  // {
-  //   key: "whitelistArrayArray",
-  //   whitelist: ["a", "b", "c"],
-  // },
-  // {
-  //   key: "whitelistKeys",
-  //   whitelistKeys: ["a", "b", "c"],
-  // },
+  {
+    key: "whitelistStringString",
+    whitelist: "abc",
+  },
+  {
+    key: "whitelistStringArray",
+    whitelist: ["a", "b", "c"],
+  },
+  {
+    key: "whitelistArrayString",
+    whitelist: "abc",
+  },
+  {
+    key: "whitelistArrayArray",
+    whitelist: ["a", "b", "c"],
+  },
+  {
+    key: "whitelistKeys",
+    whitelistKeys: ["a", "b", "c"],
+  },
 ].map((i) => ({ ...i, key: `test_${i.key}` }));
 
 const payloadPass = {
@@ -449,11 +449,11 @@ const payloadPass = {
   "type-valid": "anything",
   typeValueArray: ["a", "b", "c"],
   typeValueObject: { key1: "a", key2: "b", key3: "c" },
-  // whitelistStringString: "abc",
-  // whitelistStringArray: "a",
-  // whitelistArrayString: ["abc"],
-  // whitelistArrayArray: ["a", "b", "c"],
-  // whitelistKeys: { a: null, b: null, c: null },
+  whitelistStringString: "abc",
+  whitelistStringArray: "a",
+  whitelistArrayString: ["abc"],
+  whitelistArrayArray: ["a", "b", "c"],
+  whitelistKeys: { a: null, b: null, c: null },
 };
 
 const payloadFail = {

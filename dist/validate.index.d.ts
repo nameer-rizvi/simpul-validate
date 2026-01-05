@@ -23,6 +23,8 @@ import regex from "./validate.regex";
 import typeValidation from "./validate.type";
 import typeValueArray from "./validate.typeValueArray";
 import typeValueObject from "./validate.typeValueObject";
+import whitelist from "./validate.whitelist";
+import whitelistKeys from "./validate.whitelistKeys";
 declare const _default: {
     blacklist: typeof blacklist;
     blacklistKeys: typeof blacklistKeys;
@@ -53,5 +55,7 @@ declare const _default: {
     type: typeof typeValidation;
     typeValueArray: typeof typeValueArray;
     typeValueObject: typeof typeValueObject;
+    whitelist: typeof whitelist;
+    whitelistKeys: typeof whitelistKeys;
 };
 export default _default;

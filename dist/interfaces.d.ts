@@ -45,6 +45,8 @@ export interface Definition {
     readonly type?: ValueType;
     readonly typeValueArray?: ValueType;
     readonly typeValueObject?: ValueType;
+    readonly whitelist?: StringOrArray;
+    readonly whitelistKeys?: StringOrArray;
 }
 export interface Options {
     readonly custom?: ValidationResolver;

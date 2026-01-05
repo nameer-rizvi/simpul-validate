@@ -23,8 +23,8 @@ import regex from "./validate.regex";
 import typeValidation from "./validate.type";
 import typeValueArray from "./validate.typeValueArray";
 import typeValueObject from "./validate.typeValueObject";
-// import whitelist from "./validate.whitelist";
-// import whitelistKeys from "./validate.whitelistKeys";
+import whitelist from "./validate.whitelist";
+import whitelistKeys from "./validate.whitelistKeys";
 
 export default {
   blacklist,
@@ -56,6 +56,6 @@ export default {
   type: typeValidation,
   typeValueArray,
   typeValueObject,
-  // whitelist,
-  // whitelistKeys,
+  whitelist,
+  whitelistKeys,
 };
