@@ -25,23 +25,23 @@ export interface Definition {
   readonly ignoreSanitizerValidation?: boolean;
   readonly blacklist?: StringOrArray;
   readonly blacklistKeys?: StringOrArray;
-  // readonly match?: string;
-  // readonly min?: number;
-  // readonly max?: number;
-  // readonly minArrayItem?: number;
-  // readonly maxArrayItem?: number;
-  // readonly minLength?: number;
-  // readonly maxLength?: number;
-  // readonly minLengthArray?: number;
-  // readonly maxLengthArray?: number;
-  // readonly minLengthArrayItem?: number;
+  readonly match?: string;
+  readonly max?: number;
+  readonly maxArrayItem?: number;
+  readonly maxLength?: number;
+  readonly maxLengthArray?: number;
   // readonly maxLengthArrayItem?: number;
-  // readonly minLengthHTML?: number;
   // readonly maxLengthHTML?: number;
-  // readonly minWords?: number;
   // readonly maxWords?: number;
-  // readonly minWordsHTML?: number;
   // readonly maxWordsHTML?: number;
+  // readonly min?: number;
+  // readonly minArrayItem?: number;
+  // readonly minLength?: number;
+  // readonly minLengthArray?: number;
+  // readonly minLengthArrayItem?: number;
+  // readonly minLengthHTML?: number;
+  // readonly minWords?: number;
+  // readonly minWordsHTML?: number;
   // readonly regex?: readonly RegexRule[];
   // readonly type?: ValueType;
   // readonly typeArrayItem?: ValueType;
@@ -62,6 +62,10 @@ export interface ValidationArgs {
   readonly matchLabel?: string;
 }
 
+// ...
+// ...
+// ...
+
 // export type RegexRule =
 //   | "email"
 //   | "noSpecialChar"
@@ -72,6 +76,64 @@ export interface ValidationArgs {
 //   | { r: RegExp; warning?: string };
 
 // export type ValueType =
+//   | "array"
+//   | "base64"
+//   | "boolean"
+//   | "booleanAny"
+//   | "booleanNumber"
+//   | "booleanString"
+//   | "creditCard"
+//   | "date"
+//   | "email"
+//   | "function"
+//   | "http"
+//   | "json"
+//   | "jsonString"
+//   | "jwt"
+//   | "module"
+//   | "number"
+//   | "object"
+//   | "phoneNumber"
+//   | "regex"
+//   | "string"
+//   | "stringOrArray"
+//   | "url"
+//   | "valid";
+
+// regex?: (
+//   | "email"
+//   | "noSpecialChar"
+//   | "noWhitespace"
+//   | "onlyLetters"
+//   | "onlyNumbers"
+//   | "website"
+//   | { r: RegExp; warning?: string }
+// )[];
+// type?:
+//   | "array"
+//   | "base64"
+//   | "boolean"
+//   | "booleanAny"
+//   | "booleanNumber"
+//   | "booleanString"
+//   | "creditCard"
+//   | "date"
+//   | "email"
+//   | "function"
+//   | "http"
+//   | "json"
+//   | "jsonString"
+//   | "jwt"
+//   | "module"
+//   | "number"
+//   | "object"
+//   | "phoneNumber"
+//   | "regex"
+//   | "string"
+//   | "stringOrArray"
+//   | "url"
+//   | "valid";
+// typeArrayItem?:
 //   | "array"
 //   | "base64"
 //   | "boolean"

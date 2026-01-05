@@ -5,11 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const validate_blacklist_1 = __importDefault(require("./validate.blacklist"));
 const validate_blacklistKeys_1 = __importDefault(require("./validate.blacklistKeys"));
-// import match from "./validate.match";
-// import max from "./validate.max";
-// import maxArrayItem from "./validate.maxArrayItem";
-// import maxLength from "./validate.maxLength";
-// import maxLengthArray from "./validate.maxLengthArray";
+const validate_match_1 = __importDefault(require("./validate.match"));
+const validate_max_1 = __importDefault(require("./validate.max"));
+const validate_maxArrayItem_1 = __importDefault(require("./validate.maxArrayItem"));
+const validate_maxLength_1 = __importDefault(require("./validate.maxLength"));
 // import maxLengthArrayItem from "./validate.maxLengthArrayItem";
 // import maxLengthHTML from "./validate.maxLengthHTML";
 // import maxWords from "./validate.maxWords";
@@ -30,11 +29,11 @@ const validate_blacklistKeys_1 = __importDefault(require("./validate.blacklistKe
 exports.default = {
     blacklist: validate_blacklist_1.default,
     blacklistKeys: validate_blacklistKeys_1.default,
-    // match,
-    // max,
-    // maxArrayItem,
-    // maxLength,
-    // maxLengthArray,
+    match: validate_match_1.default,
+    max: validate_max_1.default,
+    maxArrayItem: validate_maxArrayItem_1.default,
+    maxLength: validate_maxLength_1.default,
+    maxLengthArray: validate_maxLength_1.default,
     // maxLengthArrayItem,
     // maxLengthHTML,
     // maxWords,

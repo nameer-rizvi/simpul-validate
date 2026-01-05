@@ -90,7 +90,8 @@ function initializer(dictionary, option = {}) {
             const value = payload[requiredKey];
             const isValue = simpul_1.default.isString(value)
                 ? requiredKey.toLowerCase().includes("html") ||
-                    requiredKey.toLowerCase().includes("rich_text")
+                    requiredKey.toLowerCase().includes("rich_text") ||
+                    requiredKey.toLowerCase().includes("richtext")
                     ? stringStripHtml.stripHtml(value).result.trim().length > 0
                     : value.trim().length > 0
                 : simpul_1.default.isValid(value);

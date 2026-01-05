@@ -20,7 +20,7 @@ function normalize(input: unknown): string[] {
     const list: string[] = [];
     for (const item of input.flat())
       if (simpul.isString(item)) list.push(item.toLowerCase());
-    return list.flat();
+    return list;
   } else {
     return [];
   }

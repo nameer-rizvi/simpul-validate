@@ -24,7 +24,7 @@ function normalize(input) {
         for (const item of input.flat())
             if (simpul_1.default.isString(item))
                 list.push(item.toLowerCase());
-        return list.flat();
+        return list;
     }
     else {
         return [];

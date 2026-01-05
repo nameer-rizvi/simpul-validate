@@ -1,10 +1,9 @@
 import blacklist from "./validate.blacklist";
 import blacklistKeys from "./validate.blacklistKeys";
-// import match from "./validate.match";
-// import max from "./validate.max";
-// import maxArrayItem from "./validate.maxArrayItem";
-// import maxLength from "./validate.maxLength";
-// import maxLengthArray from "./validate.maxLengthArray";
+import match from "./validate.match";
+import max from "./validate.max";
+import maxArrayItem from "./validate.maxArrayItem";
+import maxLength from "./validate.maxLength";
 // import maxLengthArrayItem from "./validate.maxLengthArrayItem";
 // import maxLengthHTML from "./validate.maxLengthHTML";
 // import maxWords from "./validate.maxWords";
@@ -26,11 +25,11 @@ import blacklistKeys from "./validate.blacklistKeys";
 export default {
   blacklist,
   blacklistKeys,
-  // match,
-  // max,
-  // maxArrayItem,
-  // maxLength,
-  // maxLengthArray,
+  match,
+  max,
+  maxArrayItem,
+  maxLength,
+  maxLengthArray: maxLength,
   // maxLengthArrayItem,
   // maxLengthHTML,
   // maxWords,

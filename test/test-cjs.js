@@ -21,26 +21,26 @@ const dictionary = [
     key: "blacklistKeys",
     blacklistKeys: ["d"],
   },
-  // {
-  //   key: "match",
-  //   match: "value_maxLength",
-  // },
-  // {
-  //   key: "max",
-  //   max: 10,
-  // },
-  // {
-  //   key: "maxArrayItem",
-  //   maxArrayItem: 3,
-  // },
-  // {
-  //   key: "maxLength",
-  //   maxLength: 3,
-  // },
-  // {
-  //   key: "maxLengthArray",
-  //   maxLengthArray: 3,
-  // },
+  {
+    key: "match",
+    match: "test_blacklistStringString",
+  },
+  {
+    key: "max",
+    max: 10,
+  },
+  {
+    key: "maxArrayItem",
+    maxArrayItem: 3,
+  },
+  {
+    key: "maxLength",
+    maxLength: 3,
+  },
+  {
+    key: "maxLengthArray",
+    maxLengthArray: 3,
+  },
   // {
   //   key: "maxLengthArrayItem",
   //   maxLengthArrayItem: 3,
@@ -229,7 +229,7 @@ const dictionary = [
   //   key: "whitelistKeys",
   //   whitelistKeys: ["a", "b", "c"],
   // },
-].map((i) => ({ ...i, key: `value_${i.key}` }));
+].map((i) => ({ ...i, key: `test_${i.key}` }));
 
 const payloadPass = {
   blacklistStringString: "abc",
@@ -237,11 +237,11 @@ const payloadPass = {
   blacklistArrayString: ["abc"],
   blacklistArrayArray: ["a", "b", "c"],
   blacklistKeys: { a: null, b: null, c: null },
-  // match: "abc",
-  // max: 10,
-  // maxArrayItem: [1, 2, 3],
-  // maxLength: "abc",
-  // maxLengthArray: [1, 2, 3],
+  match: "abc",
+  max: 10,
+  maxArrayItem: [1, 2, 3],
+  maxLength: "abc",
+  maxLengthArray: [1, 2, 3],
   // maxLengthArrayItem: ["a", "ab", "abc"],
   // maxLengthHTML: "<p>abc</p>",
   // maxWords: "a b c",
@@ -377,7 +377,7 @@ try {
 
 function changeKey(payload) {
   Object.keys(payload).forEach((key) => {
-    payload[`value_${key}`] = payload[key];
+    payload[`test_${key}`] = payload[key];
     delete payload[key];
   });
 }

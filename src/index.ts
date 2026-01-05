@@ -3,8 +3,8 @@ import sanitized from "sanitized";
 import * as stringStripHtml from "string-strip-html";
 import {
   Definition,
-  DefinitionMap,
   Options,
+  DefinitionMap,
   ValidationResolver,
   PayloadObject,
   RequiredList,
@@ -79,7 +79,8 @@ function initializer(dictionary: Definition[], option: Options = {}) {
 
       const isValue = simpul.isString(value)
         ? requiredKey.toLowerCase().includes("html") ||
-          requiredKey.toLowerCase().includes("rich_text")
+          requiredKey.toLowerCase().includes("rich_text") ||
+          requiredKey.toLowerCase().includes("richtext")
           ? stringStripHtml.stripHtml(value).result.trim().length > 0
           : value.trim().length > 0
         : simpul.isValid(value);

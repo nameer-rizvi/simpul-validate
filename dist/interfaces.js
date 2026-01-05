@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+// ...
+// ...
+// ...
 // export type RegexRule =
 //   | "email"
 //   | "noSpecialChar"
@@ -9,6 +12,63 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //   | "website"
 //   | { r: RegExp; warning?: string };
 // export type ValueType =
+//   | "array"
+//   | "base64"
+//   | "boolean"
+//   | "booleanAny"
+//   | "booleanNumber"
+//   | "booleanString"
+//   | "creditCard"
+//   | "date"
+//   | "email"
+//   | "function"
+//   | "http"
+//   | "json"
+//   | "jsonString"
+//   | "jwt"
+//   | "module"
+//   | "number"
+//   | "object"
+//   | "phoneNumber"
+//   | "regex"
+//   | "string"
+//   | "stringOrArray"
+//   | "url"
+//   | "valid";
+// regex?: (
+//   | "email"
+//   | "noSpecialChar"
+//   | "noWhitespace"
+//   | "onlyLetters"
+//   | "onlyNumbers"
+//   | "website"
+//   | { r: RegExp; warning?: string }
+// )[];
+// type?:
+//   | "array"
+//   | "base64"
+//   | "boolean"
+//   | "booleanAny"
+//   | "booleanNumber"
+//   | "booleanString"
+//   | "creditCard"
+//   | "date"
+//   | "email"
+//   | "function"
+//   | "http"
+//   | "json"
+//   | "jsonString"
+//   | "jwt"
+//   | "module"
+//   | "number"
+//   | "object"
+//   | "phoneNumber"
+//   | "regex"
+//   | "string"
+//   | "stringOrArray"
+//   | "url"
+//   | "valid";
+// typeArrayItem?:
 //   | "array"
 //   | "base64"
 //   | "boolean"

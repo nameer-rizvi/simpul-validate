@@ -14,18 +14,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const validate_blacklist_1 = __importDefault(require("./validate.blacklist"));
+const validate_max_1 = __importDefault(require("./validate.max"));
 const simpul_1 = __importDefault(require("simpul"));
-function validateBlacklistKeys(_a) {
-    var { value } = _a, rest = __rest(_a, ["value"]);
-    try {
-        if (simpul_1.default.isObject(value)) {
-            (0, validate_blacklist_1.default)(Object.assign({ value: Object.keys(value) }, rest));
+function validateMaxArrayItem(_a) {
+    var { value: values } = _a, rest = __rest(_a, ["value"]);
+    if (simpul_1.default.isArray(values)) {
+        for (const value of values) {
+            (0, validate_max_1.default)(Object.assign(Object.assign({}, rest), { value, label: `${rest.label}: ${value}` }));
         }
     }
-    catch (err) {
-        const message = err instanceof Error ? err.message : String(err);
-        throw new Error(message.replace("term", "key").trim());
-    }
 }
-exports.default = validateBlacklistKeys;
+exports.default = validateMaxArrayItem;

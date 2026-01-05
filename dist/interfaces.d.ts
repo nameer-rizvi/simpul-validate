@@ -11,6 +11,11 @@ export interface Definition {
     readonly ignoreSanitizerValidation?: boolean;
     readonly blacklist?: StringOrArray;
     readonly blacklistKeys?: StringOrArray;
+    readonly match?: string;
+    readonly max?: number;
+    readonly maxArrayItem?: number;
+    readonly maxLength?: number;
+    readonly maxLengthArray?: number;
 }
 export interface Options {
     readonly custom?: ValidationResolver;
