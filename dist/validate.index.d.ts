@@ -19,6 +19,7 @@ import minValueArray from "./validate.minValueArray";
 import minValueObject from "./validate.minValueObject";
 import minWords from "./validate.minWords";
 import minWordsHtml from "./validate.minWordsHtml";
+import regex from "./validate.regex";
 declare const _default: {
     blacklist: typeof blacklist;
     blacklistKeys: typeof blacklistKeys;
@@ -45,5 +46,6 @@ declare const _default: {
     minValueObject: typeof minValueObject;
     minWords: typeof minWords;
     minWordsHtml: typeof minWordsHtml;
+    regex: typeof regex;
 };
 export default _default;

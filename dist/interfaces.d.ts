@@ -1,6 +1,12 @@
 import DOMPurify from "isomorphic-dompurify";
 export type DefinitionMap = Map<string, Definition>;
 export type PayloadObject = Record<string, any>;
+export type RegexRule = {
+    r: RegExp;
+    warning?: string;
+    trusted?: boolean;
+};
+export type RegexRuleName = "alphaNumeric" | "countryCode" | "creditCard" | "currencyAmount" | "displayName" | "email" | "hexColor" | "ipv4" | "noEmoji" | "noHtml" | "noSpecialChar" | "noWhitespace" | "onlyLetters" | "onlyNumbers" | "phoneNumber" | "pinCode" | "postalCodeUS" | "slug" | "strongPassword" | "trimmed" | "username" | "uuidV4" | "website";
 export type RequiredList = readonly string[];
 export type StringOrArray<T = string> = T | readonly T[];
 export type ValidationResolver = Record<string, (args: ValidationArgs) => void>;
@@ -34,6 +40,7 @@ export interface Definition {
     readonly minValueObject?: number;
     readonly minWords?: number;
     readonly minWordsHtml?: number;
+    readonly regex?: ReadonlyArray<RegexRule | RegexRuleName>;
 }
 export interface Options {
     readonly custom?: ValidationResolver;

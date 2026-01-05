@@ -24,9 +24,10 @@ const validate_minValueArray_1 = __importDefault(require("./validate.minValueArr
 const validate_minValueObject_1 = __importDefault(require("./validate.minValueObject"));
 const validate_minWords_1 = __importDefault(require("./validate.minWords"));
 const validate_minWordsHtml_1 = __importDefault(require("./validate.minWordsHtml"));
-// import regex from "./validate.regex";
+const validate_regex_1 = __importDefault(require("./validate.regex"));
 // import _type from "./validate.type";
-// import typeArrayItem from "./validate.typeArrayItem";
+// import typeValueArray from "./validate.typeValueArray";
+// import typeValueObject from "./validate.typeValueObject";
 // import whitelist from "./validate.whitelist";
 // import whitelistKeys from "./validate.whitelistKeys";
 exports.default = {
@@ -55,9 +56,10 @@ exports.default = {
     minValueObject: validate_minValueObject_1.default,
     minWords: validate_minWords_1.default,
     minWordsHtml: validate_minWordsHtml_1.default,
-    // regex,
+    regex: validate_regex_1.default,
     // type: _type,
-    // typeArrayItem,
+    // typeValueArray,
+    // typeValueObject,
     // whitelist,
     // whitelistKeys,
 };

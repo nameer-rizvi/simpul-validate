@@ -8,6 +8,33 @@ export type DefinitionMap = Map<string, Definition>;
 
 export type PayloadObject = Record<string, any>;
 
+export type RegexRule = { r: RegExp; warning?: string; trusted?: boolean };
+
+export type RegexRuleName =
+  | "alphaNumeric"
+  | "countryCode"
+  | "creditCard"
+  | "currencyAmount"
+  | "displayName"
+  | "email"
+  | "hexColor"
+  | "ipv4"
+  | "noEmoji"
+  | "noHtml"
+  | "noSpecialChar"
+  | "noWhitespace"
+  | "onlyLetters"
+  | "onlyNumbers"
+  | "phoneNumber"
+  | "pinCode"
+  | "postalCodeUS"
+  | "slug"
+  | "strongPassword"
+  | "trimmed"
+  | "username"
+  | "uuidV4"
+  | "website";
+
 export type RequiredList = readonly string[];
 
 export type StringOrArray<T = string> = T | readonly T[];
@@ -48,7 +75,7 @@ export interface Definition {
   readonly minValueObject?: number;
   readonly minWords?: number;
   readonly minWordsHtml?: number;
-  // readonly regex?: readonly RegexRule[];
+  readonly regex?: ReadonlyArray<RegexRule | RegexRuleName>;
   // readonly type?: ValueType;
   // readonly typeArrayItem?: ValueType;
   // readonly whitelist?: StringOrArray;
@@ -67,99 +94,3 @@ export interface ValidationArgs {
   readonly match?: unknown;
   readonly matchLabel?: string;
 }
-
-// ...
-// ...
-// ...
-
-// export type RegexRule =
-//   | "email"
-//   | "noSpecialChar"
-//   | "noWhitespace"
-//   | "onlyLetters"
-//   | "onlyNumbers"
-//   | "website"
-//   | { r: RegExp; warning?: string };
-
-// export type ValueType =
-//   | "array"
-//   | "base64"
-//   | "boolean"
-//   | "booleanAny"
-//   | "booleanNumber"
-//   | "booleanString"
-//   | "creditCard"
-//   | "date"
-//   | "email"
-//   | "function"
-//   | "http"
-//   | "json"
-//   | "jsonString"
-//   | "jwt"
-//   | "module"
-//   | "number"
-//   | "object"
-//   | "phoneNumber"
-//   | "regex"
-//   | "string"
-//   | "stringOrArray"
-//   | "url"
-//   | "valid";
-
-// regex?: (
-//   | "email"
-//   | "noSpecialChar"
-//   | "noWhitespace"
-//   | "onlyLetters"
-//   | "onlyNumbers"
-//   | "website"
-//   | { r: RegExp; warning?: string }
-// )[];
-// type?:
-//   | "array"
-//   | "base64"
-//   | "boolean"
-//   | "booleanAny"
-//   | "booleanNumber"
-//   | "booleanString"
-//   | "creditCard"
-//   | "date"
-//   | "email"
-//   | "function"
-//   | "http"
-//   | "json"
-//   | "jsonString"
-//   | "jwt"
-//   | "module"
-//   | "number"
-//   | "object"
-//   | "phoneNumber"
-//   | "regex"
-//   | "string"
-//   | "stringOrArray"
-//   | "url"
-//   | "valid";
-// typeArrayItem?:
-//   | "array"
-//   | "base64"
-//   | "boolean"
-//   | "booleanAny"
-//   | "booleanNumber"
-//   | "booleanString"
-//   | "creditCard"
-//   | "date"
-//   | "email"
-//   | "function"
-//   | "http"
-//   | "json"
-//   | "jsonString"
-//   | "jwt"
-//   | "module"
-//   | "number"
-//   | "object"
-//   | "phoneNumber"
-//   | "regex"
-//   | "string"
-//   | "stringOrArray"
-//   | "url"
-//   | "valid";
