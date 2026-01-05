@@ -23,6 +23,17 @@ export interface Definition {
     readonly maxValueObject?: number;
     readonly maxWords?: number;
     readonly maxWordsHtml?: number;
+    readonly min?: number;
+    readonly minLength?: number;
+    readonly minLengthArray?: number;
+    readonly minLengthString?: number;
+    readonly minLengthHtml?: number;
+    readonly minLengthValueArray?: number;
+    readonly minLengthValueObject?: number;
+    readonly minValueArray?: number;
+    readonly minValueObject?: number;
+    readonly minWords?: number;
+    readonly minWordsHtml?: number;
 }
 export interface Options {
     readonly custom?: ValidationResolver;

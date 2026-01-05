@@ -69,50 +69,50 @@ const dictionary = [
     key: "maxWordsHtml",
     maxWordsHtml: 3,
   },
-  // {
-  //   key: "min",
-  //   min: 10,
-  // },
-  // {
-  //   key: "minLength",
-  //   minLength: 3,
-  // },
-  // {
-  //   key: "minLengthArray",
-  //   minLengthArray: 3,
-  // },
-  // {
-  //   key: "minLengthString",
-  //   minLengthString: 3,
-  // },
-  // {
-  //   key: "minLengthHtml",
-  //   minLengthHtml: 3,
-  // },
-  // {
-  //   key: "minLengthValueArray",
-  //   minLengthValueArray: 3,
-  // },
-  // {
-  //   key: "minLengthValueObject",
-  //   minLengthValueObject: 3,
-  // },
-  // {
-  //   key: "minValueArray",
-  //   minValueArray: 3,
-  // },
-  // {
-  //   key: "minValueObject",
-  //   minValueObject: 3,
-  // },
-  // {
-  //   key: "minWords",
-  //   minWords: 3,
-  // },
-  // {
-  //   key: "minWordsHtml",
-  //   minWordsHtml: 3,
-  // },
+  {
+    key: "min",
+    min: 3,
+  },
+  {
+    key: "minLength",
+    minLength: 3,
+  },
+  {
+    key: "minLengthArray",
+    minLengthArray: 3,
+  },
+  {
+    key: "minLengthString",
+    minLengthString: 3,
+  },
+  {
+    key: "minLengthHtml",
+    minLengthHtml: 3,
+  },
+  {
+    key: "minLengthValueArray",
+    minLengthValueArray: 3,
+  },
+  {
+    key: "minLengthValueObject",
+    minLengthValueObject: 3,
+  },
+  {
+    key: "minValueArray",
+    minValueArray: 3,
+  },
+  {
+    key: "minValueObject",
+    minValueObject: 3,
+  },
+  {
+    key: "minWords",
+    minWords: 3,
+  },
+  {
+    key: "minWordsHtml",
+    minWordsHtml: 3,
+  },
   // {
   //   key: "regexEmail",
   //   regex: ["email"],
@@ -273,17 +273,17 @@ const payloadPass = {
   maxValueObject: { key1: 1, key2: 2, key3: 3 },
   maxWords: "a b c",
   maxWordsHtml: "<p> a b c </p>",
-  // min: 3,
-  // minLength: "abc",
-  // minLengthArray: [1, 2, 3],
-  // minLengthString: "abc",
-  // minLengthHtml: "<p>abc</p>",
-  // minLengthValueArray: ["abc", "abcd"],
-  // minLengthValueObject: { key1: "abc", key2: "abcd" },
-  // minValueArray: [3, 4],
-  // minValueObject: { key1: 3, key2: 4 },
-  // minWords: "a b c",
-  // minWordsHtml: "<p> a b c </p>",
+  min: 3,
+  minLength: "abc",
+  minLengthArray: [1, 2, 3],
+  minLengthString: "abc",
+  minLengthHtml: "<p>abc</p>",
+  minLengthValueArray: ["abc", "abcd"],
+  minLengthValueObject: { key1: "abc", key2: "abcd" },
+  minValueArray: [3, 4],
+  minValueObject: { key1: 3, key2: 4 },
+  minWords: "a b c",
+  minWordsHtml: "<p> a b c </p>",
   // regexEmail: "email@email.com",
   // regexNoSpecialChar: "abc123_",
   // regexNoWhitespace: "abc123",

@@ -15,14 +15,15 @@ const validate_maxValueArray_1 = __importDefault(require("./validate.maxValueArr
 const validate_maxValueObject_1 = __importDefault(require("./validate.maxValueObject"));
 const validate_maxWords_1 = __importDefault(require("./validate.maxWords"));
 const validate_maxWordsHtml_1 = __importDefault(require("./validate.maxWordsHtml"));
-// import min from "./validate.min";
-// import minArrayItem from "./validate.minArrayItem";
-// import minLength from "./validate.minLength";
-// import minLengthArray from "./validate.minLengthArray";
-// import minLengthArrayItem from "./validate.minLengthArrayItem";
-// import minLengthHtml from "./validate.minLengthHtml";
-// import minWords from "./validate.minWords";
-// import minWordsHtml from "./validate.minWordsHtml";
+const validate_min_1 = __importDefault(require("./validate.min"));
+const validate_minLength_1 = __importDefault(require("./validate.minLength"));
+const validate_minLengthHtml_1 = __importDefault(require("./validate.minLengthHtml"));
+const validate_minLengthValueArray_1 = __importDefault(require("./validate.minLengthValueArray"));
+const validate_minLengthValueObject_1 = __importDefault(require("./validate.minLengthValueObject"));
+const validate_minValueArray_1 = __importDefault(require("./validate.minValueArray"));
+const validate_minValueObject_1 = __importDefault(require("./validate.minValueObject"));
+const validate_minWords_1 = __importDefault(require("./validate.minWords"));
+const validate_minWordsHtml_1 = __importDefault(require("./validate.minWordsHtml"));
 // import regex from "./validate.regex";
 // import _type from "./validate.type";
 // import typeArrayItem from "./validate.typeArrayItem";
@@ -43,14 +44,17 @@ exports.default = {
     maxValueObject: validate_maxValueObject_1.default,
     maxWords: validate_maxWords_1.default,
     maxWordsHtml: validate_maxWordsHtml_1.default,
-    // min,
-    // minArrayItem,
-    // minLength,
-    // minLengthArray,
-    // minLengthArrayItem,
-    // minLengthHtml,
-    // minWords,
-    // minWordsHtml,
+    min: validate_min_1.default,
+    minLength: validate_minLength_1.default,
+    minLengthArray: validate_minLength_1.default,
+    minLengthString: validate_minLength_1.default,
+    minLengthHtml: validate_minLengthHtml_1.default,
+    minLengthValueArray: validate_minLengthValueArray_1.default,
+    minLengthValueObject: validate_minLengthValueObject_1.default,
+    minValueArray: validate_minValueArray_1.default,
+    minValueObject: validate_minValueObject_1.default,
+    minWords: validate_minWords_1.default,
+    minWordsHtml: validate_minWordsHtml_1.default,
     // regex,
     // type: _type,
     // typeArrayItem,
