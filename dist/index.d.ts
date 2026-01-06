@@ -1,3 +1,3 @@
-import { Definition, Options, Object } from "./util.interfaces";
-declare function initializer(dictionary: Definition[], option?: Options): (payload: Object, required: string[]) => void;
+import { Definition, Options, PayloadObject, RequiredList } from "./interfaces";
+declare function initializer(dictionary: Definition[], option?: Options): (payload?: PayloadObject, required?: RequiredList) => void;
 export = initializer;

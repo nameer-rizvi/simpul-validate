@@ -1,37 +1,40 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+const simpul_1 = __importDefault(require("simpul"));
 function validateBlacklist({ label, setting, value }) {
-    const value2 = typeof value === "string"
-        ? value.toLowerCase()
-        : Array.isArray(value)
-            ? value.filter((v) => typeof v === "string").map((v) => v.toLowerCase())
-            : "";
-    const setting2 = typeof setting === "string"
-        ? setting.toLowerCase()
-        : Array.isArray(setting)
-            ? setting.filter((i) => typeof i === "string").map((i) => i.toLowerCase())
-            : "";
-    if (typeof value2 === "string" && typeof setting2 === "string") {
-        if (value2.includes(setting2))
-            throwError(label, setting2);
-    }
-    else if (typeof value2 === "string" && Array.isArray(setting2)) {
-        const v = setting2.find((i2) => value2.includes(i2));
-        if (v)
-            throwError(label, v);
-    }
-    else if (Array.isArray(value2) && typeof setting2 === "string") {
-        const v = value2.find((i2) => i2.includes(setting));
-        if (v)
-            throwError(label, v);
-    }
-    else if (Array.isArray(value2) && Array.isArray(setting2)) {
-        const v = value2.find((i2) => setting2.includes(i2));
-        if (v)
-            throwError(label, v);
+    const values = normalize(value);
+    const settings = normalize(setting);
+    for (const v of values) {
+        for (const s of settings) {
+            if (v.includes(s)) {
+                throw new Error(`${label}: "${s}" is a reserved term.`);
+            }
+        }
     }
 }
-function throwError(label, v) {
-    throw new Error(`${label}: "${v}" is a reserved term.`);
+function normalize(input) {
+    if (simpul_1.default.isString(input)) {
+        return [input.toLowerCase()];
+    }
+    else if (simpul_1.default.isArray(input)) {
+        const list = [];
+        for (const item of input.flat())
+            if (simpul_1.default.isString(item))
+                list.push(item.toLowerCase());
+        return list;
+    }
+    else if (simpul_1.default.isObject(input)) {
+        const list = [];
+        for (const value of Object.values(input).flat())
+            if (simpul_1.default.isString(value))
+                list.push(value.toLowerCase());
+        return list;
+    }
+    else {
+        return [];
+    }
 }
 exports.default = validateBlacklist;

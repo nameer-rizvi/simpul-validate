@@ -1,26 +1,38 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+const simpul_1 = __importDefault(require("simpul"));
 function validateWhitelist({ label, setting, value }) {
-    if (typeof value === "string" && typeof setting === "string") {
-        if (value !== setting)
-            throwError(label, value);
-    }
-    else if (typeof value === "string" && Array.isArray(setting)) {
-        if (!setting.includes(value))
-            throwError(label, value);
-    }
-    else if (Array.isArray(value) && typeof setting === "string") {
-        const v = value.find((i) => i !== setting);
-        if (v)
-            throwError(label, v);
-    }
-    else if (Array.isArray(value) && Array.isArray(setting)) {
-        const v = value.find((i) => !setting.includes(i));
-        if (v)
-            throwError(label, v);
+    const values = normalize(value);
+    const settings = normalize(setting);
+    for (const v of values) {
+        if (!settings.includes(v)) {
+            throw new Error(`${label}: "${v}" is not an acceptable value.`);
+        }
     }
 }
-function throwError(label, v) {
-    throw new Error(`${label}: "${v}" is not an acceptable value.`);
+function normalize(input) {
+    if (simpul_1.default.isString(input)) {
+        return [input.toLowerCase()];
+    }
+    else if (simpul_1.default.isArray(input)) {
+        const list = [];
+        for (const item of input.flat())
+            if (simpul_1.default.isString(item))
+                list.push(item.toLowerCase());
+        return list;
+    }
+    else if (simpul_1.default.isObject(input)) {
+        const list = [];
+        for (const value of Object.values(input).flat())
+            if (simpul_1.default.isString(value))
+                list.push(value.toLowerCase());
+        return list;
+    }
+    else {
+        return [];
+    }
 }
 exports.default = validateWhitelist;

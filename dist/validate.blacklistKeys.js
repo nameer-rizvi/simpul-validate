@@ -15,14 +15,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const validate_blacklist_1 = __importDefault(require("./validate.blacklist"));
+const simpul_1 = __importDefault(require("simpul"));
 function validateBlacklistKeys(_a) {
     var { value } = _a, rest = __rest(_a, ["value"]);
     try {
-        (0, validate_blacklist_1.default)(Object.assign({ value: Object.keys(value) }, rest));
+        if (simpul_1.default.isObject(value)) {
+            (0, validate_blacklist_1.default)(Object.assign({ value: Object.keys(value) }, rest));
+        }
     }
     catch (err) {
-        const error = `${err}`.replace("Error:", "").replace("term", "key").trim();
-        throw new Error(error);
+        const message = err instanceof Error ? err.message : String(err);
+        throw new Error(message.replace("term", "key").trim());
     }
 }
 exports.default = validateBlacklistKeys;

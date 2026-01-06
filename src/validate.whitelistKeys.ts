@@ -1,12 +1,15 @@
-import { Validation } from "./util.interfaces";
+import { ValidationOptions } from "./interfaces";
 import validateWhitelist from "./validate.whitelist";
+import simpul from "simpul";
 
-function validateWhitelistKeys({ value, ...rest }: Validation) {
+function validateWhitelistKeys({ value, ...rest }: ValidationOptions) {
   try {
-    validateWhitelist({ value: Object.keys(value), ...rest });
+    if (simpul.isObject(value)) {
+      validateWhitelist({ value: Object.keys(value), ...rest });
+    }
   } catch (err) {
-    const error = `${err}`.replace("Error:", "").replace("value", "key").trim();
-    throw new Error(error);
+    const message = err instanceof Error ? err.message : String(err);
+    throw new Error(message.replace("value", "key").trim());
   }
 }
 

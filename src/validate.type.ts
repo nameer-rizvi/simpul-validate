@@ -1,14 +1,16 @@
-import { Validation } from "./util.interfaces";
+import { ValidationOptions } from "./interfaces";
 import simpul from "simpul";
 
 const resolver = {
   array: simpul.isArray,
+  arrayNonEmpty: simpul.isArrayNonEmpty,
+  arrayOrString: simpul.isArrayOrString,
   base64: simpul.isBase64,
   boolean: simpul.isBoolean,
   booleanAny: simpul.isBooleanAny,
   booleanNumber: simpul.isBooleanNumber,
   booleanString: simpul.isBooleanString,
-  creditCard: simpul.isCreditCardNumber,
+  creditCardNumber: simpul.isCreditCardNumber,
   date: simpul.isDate,
   email: simpul.isEmail,
   error: simpul.isError,
@@ -19,21 +21,27 @@ const resolver = {
   jwt: simpul.isJWT,
   module: simpul.isModule,
   number: simpul.isNumber,
+  numberString: simpul.isNumberString,
+  numberValid: simpul.isNumberValid,
+  numeric: simpul.isNumeric,
   object: simpul.isObject,
+  objectNonEmpty: simpul.isObjectNonEmpty,
   phoneNumber: simpul.isPhoneNumber,
   regex: simpul.isRegex,
   string: simpul.isString,
+  stringNonEmpty: simpul.isStringNonEmpty,
   stringOrArray: simpul.isStringOrArray,
+  stringSafe: simpul.isStringSafe,
   url: simpul.isURL,
   valid: simpul.isValid,
-} as { [key: string]: Function };
+} as const;
 
-function validateType({ label, setting, value }: Validation) {
-  const error = `${label} is not type: ${setting}.`;
-  if (resolver[setting]) {
-    if (!resolver[setting](value)) throw new Error(error);
-  } else if (typeof value !== setting) {
-    throw new Error(error);
+function validateType({ label, setting, value }: ValidationOptions) {
+  if (simpul.isString(setting)) {
+    const guard = resolver[setting as keyof typeof resolver];
+    if ((!guard && typeof value !== setting) || !guard(value)) {
+      throw new Error(`${label} is not type: ${setting}.`);
+    }
   }
 }
 

@@ -1,3 +1,3 @@
-import { Validation } from "./util.interfaces";
-declare function validateMaxWords({ label, setting, value }: Validation): void;
+import { ValidationOptions } from "./interfaces";
+declare function validateMaxWords({ label, value, ...rest }: ValidationOptions): void;
 export default validateMaxWords;

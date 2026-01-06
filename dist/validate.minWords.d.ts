@@ -1,3 +1,3 @@
-import { Validation } from "./util.interfaces";
-declare function validateMinWords({ label, setting, value }: Validation): void;
+import { ValidationOptions } from "./interfaces";
+declare function validateMinWords({ label, value, ...rest }: ValidationOptions): void;
 export default validateMinWords;

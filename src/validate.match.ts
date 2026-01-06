@@ -1,8 +1,8 @@
-import { Validation } from "./util.interfaces";
+import { ValidationOptions } from "./interfaces";
 
-function validateMatch({ label, value, match, matchLabel = "" }: Validation) {
+function validateMatch({ label, value, match, matchLabel }: ValidationOptions) {
   if (match !== undefined && match !== value) {
-    throw new Error(`${label} must match "${matchLabel.toLowerCase()}".`);
+    throw new Error(`${label} must match "${matchLabel?.toLowerCase()}".`);
   }
 }
 

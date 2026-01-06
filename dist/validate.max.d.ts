@@ -1,3 +1,3 @@
-import { Validation } from "./util.interfaces";
-declare function validateMax({ label, setting, value }: Validation): void;
+import { ValidationOptions } from "./interfaces";
+declare function validateMax({ label, setting, value }: ValidationOptions): void;
 export default validateMax;

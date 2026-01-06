@@ -1,3 +1,3 @@
-import { Validation } from "./util.interfaces";
-declare function validateType({ label, setting, value }: Validation): void;
+import { ValidationOptions } from "./interfaces";
+declare function validateType({ label, setting, value }: ValidationOptions): void;
 export default validateType;

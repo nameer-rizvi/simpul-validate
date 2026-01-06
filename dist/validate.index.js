@@ -7,24 +7,27 @@ const validate_blacklist_1 = __importDefault(require("./validate.blacklist"));
 const validate_blacklistKeys_1 = __importDefault(require("./validate.blacklistKeys"));
 const validate_match_1 = __importDefault(require("./validate.match"));
 const validate_max_1 = __importDefault(require("./validate.max"));
-const validate_maxArrayItem_1 = __importDefault(require("./validate.maxArrayItem"));
 const validate_maxLength_1 = __importDefault(require("./validate.maxLength"));
-const validate_maxLengthArray_1 = __importDefault(require("./validate.maxLengthArray"));
-const validate_maxLengthArrayItem_1 = __importDefault(require("./validate.maxLengthArrayItem"));
-const validate_maxLengthHTML_1 = __importDefault(require("./validate.maxLengthHTML"));
+const validate_maxLengthHtml_1 = __importDefault(require("./validate.maxLengthHtml"));
+const validate_maxLengthValueArray_1 = __importDefault(require("./validate.maxLengthValueArray"));
+const validate_maxLengthValueObject_1 = __importDefault(require("./validate.maxLengthValueObject"));
+const validate_maxValueArray_1 = __importDefault(require("./validate.maxValueArray"));
+const validate_maxValueObject_1 = __importDefault(require("./validate.maxValueObject"));
 const validate_maxWords_1 = __importDefault(require("./validate.maxWords"));
-const validate_maxWordsHTML_1 = __importDefault(require("./validate.maxWordsHTML"));
+const validate_maxWordsHtml_1 = __importDefault(require("./validate.maxWordsHtml"));
 const validate_min_1 = __importDefault(require("./validate.min"));
-const validate_minArrayItem_1 = __importDefault(require("./validate.minArrayItem"));
 const validate_minLength_1 = __importDefault(require("./validate.minLength"));
-const validate_minLengthArray_1 = __importDefault(require("./validate.minLengthArray"));
-const validate_minLengthArrayItem_1 = __importDefault(require("./validate.minLengthArrayItem"));
-const validate_minLengthHTML_1 = __importDefault(require("./validate.minLengthHTML"));
+const validate_minLengthHtml_1 = __importDefault(require("./validate.minLengthHtml"));
+const validate_minLengthValueArray_1 = __importDefault(require("./validate.minLengthValueArray"));
+const validate_minLengthValueObject_1 = __importDefault(require("./validate.minLengthValueObject"));
+const validate_minValueArray_1 = __importDefault(require("./validate.minValueArray"));
+const validate_minValueObject_1 = __importDefault(require("./validate.minValueObject"));
 const validate_minWords_1 = __importDefault(require("./validate.minWords"));
-const validate_minWordsHTML_1 = __importDefault(require("./validate.minWordsHTML"));
+const validate_minWordsHtml_1 = __importDefault(require("./validate.minWordsHtml"));
 const validate_regex_1 = __importDefault(require("./validate.regex"));
 const validate_type_1 = __importDefault(require("./validate.type"));
-const validate_typeArrayItem_1 = __importDefault(require("./validate.typeArrayItem"));
+const validate_typeValueArray_1 = __importDefault(require("./validate.typeValueArray"));
+const validate_typeValueObject_1 = __importDefault(require("./validate.typeValueObject"));
 const validate_whitelist_1 = __importDefault(require("./validate.whitelist"));
 const validate_whitelistKeys_1 = __importDefault(require("./validate.whitelistKeys"));
 exports.default = {
@@ -32,24 +35,31 @@ exports.default = {
     blacklistKeys: validate_blacklistKeys_1.default,
     match: validate_match_1.default,
     max: validate_max_1.default,
-    maxArrayItem: validate_maxArrayItem_1.default,
     maxLength: validate_maxLength_1.default,
-    maxLengthArray: validate_maxLengthArray_1.default,
-    maxLengthArrayItem: validate_maxLengthArrayItem_1.default,
-    maxLengthHTML: validate_maxLengthHTML_1.default,
+    maxLengthArray: validate_maxLength_1.default,
+    maxLengthString: validate_maxLength_1.default,
+    maxLengthHtml: validate_maxLengthHtml_1.default,
+    maxLengthValueArray: validate_maxLengthValueArray_1.default,
+    maxLengthValueObject: validate_maxLengthValueObject_1.default,
+    maxValueArray: validate_maxValueArray_1.default,
+    maxValueObject: validate_maxValueObject_1.default,
     maxWords: validate_maxWords_1.default,
-    maxWordsHTML: validate_maxWordsHTML_1.default,
+    maxWordsHtml: validate_maxWordsHtml_1.default,
     min: validate_min_1.default,
-    minArrayItem: validate_minArrayItem_1.default,
     minLength: validate_minLength_1.default,
-    minLengthArray: validate_minLengthArray_1.default,
-    minLengthArrayItem: validate_minLengthArrayItem_1.default,
-    minLengthHTML: validate_minLengthHTML_1.default,
+    minLengthArray: validate_minLength_1.default,
+    minLengthString: validate_minLength_1.default,
+    minLengthHtml: validate_minLengthHtml_1.default,
+    minLengthValueArray: validate_minLengthValueArray_1.default,
+    minLengthValueObject: validate_minLengthValueObject_1.default,
+    minValueArray: validate_minValueArray_1.default,
+    minValueObject: validate_minValueObject_1.default,
     minWords: validate_minWords_1.default,
-    minWordsHTML: validate_minWordsHTML_1.default,
+    minWordsHtml: validate_minWordsHtml_1.default,
     regex: validate_regex_1.default,
     type: validate_type_1.default,
-    typeArrayItem: validate_typeArrayItem_1.default,
+    typeValueArray: validate_typeValueArray_1.default,
+    typeValueObject: validate_typeValueObject_1.default,
     whitelist: validate_whitelist_1.default,
     whitelistKeys: validate_whitelistKeys_1.default,
 };

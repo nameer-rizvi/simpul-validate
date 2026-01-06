@@ -1,10 +1,12 @@
-import { Validation } from "./util.interfaces";
+import { ValidationOptions } from "./interfaces";
+import validateMax from "./validate.max";
 import simpul from "simpul";
 
-function validateMaxWords({ label, setting, value }: Validation) {
-  const words = simpul.stringlength.word(value);
-  if (typeof words === "number" && words > setting) {
-    throw new Error(`${label} must be less than or equal to ${setting} words.`);
+function validateMaxWords({ label, value, ...rest }: ValidationOptions) {
+  if (simpul.isString(value)) {
+    const label2 = `${label}${simpul.delimiter}words`;
+    const value2 = simpul.stringLength.word(value);
+    validateMax({ label: label2, value: value2, ...rest });
   }
 }
 

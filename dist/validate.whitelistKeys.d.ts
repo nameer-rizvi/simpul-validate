@@ -1,3 +1,3 @@
-import { Validation } from "./util.interfaces";
-declare function validateWhitelistKeys({ value, ...rest }: Validation): void;
+import { ValidationOptions } from "./interfaces";
+declare function validateWhitelistKeys({ value, ...rest }: ValidationOptions): void;
 export default validateWhitelistKeys;
