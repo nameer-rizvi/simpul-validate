@@ -47,9 +47,9 @@ function initializer(dictionary, option = {}) {
             defMap.set(definition.key, Object.freeze(Object.assign(Object.assign({}, definition), { label })));
         }
     }
-    const validationResolver = Object.assign(Object.assign({}, validate_index_1.default), option.custom);
+    const validationResolver = Object.freeze(Object.assign(Object.assign({}, validate_index_1.default), option.custom));
     return function validator(payload, required) {
-        if (payload === undefined)
+        if (!simpul_1.default.isObject(payload))
             return;
         for (const [key, value] of Object.entries(payload)) {
             const definition = getDefinition(defMap, key);
@@ -77,7 +77,8 @@ function initializer(dictionary, option = {}) {
                     simpul_1.default.isArray(value) ||
                     simpul_1.default.isObject(value));
             if (isSanitizer) {
-                const sanitizedValue = (0, sanitized_1.default)(value, option.domPurifyOptions);
+                const options = definition.domPurifyOptions || option.domPurifyOptions;
+                const sanitizedValue = (0, sanitized_1.default)(value, options);
                 if (definition.ignoreSanitizerValidation !== true) {
                     if (JSON.stringify(value) !== JSON.stringify(sanitizedValue)) {
                         throw new Error(`${definition.label} is a dirty value.`);

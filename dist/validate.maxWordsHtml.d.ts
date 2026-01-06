@@ -1,3 +1,3 @@
-import { ValidationArgs } from "./interfaces";
-declare function validateMaxWordsHtml({ value, ...rest }: ValidationArgs): void;
+import { ValidationOptions } from "./interfaces";
+declare function validateMaxWordsHtml({ value, ...rest }: ValidationOptions): void;
 export default validateMaxWordsHtml;

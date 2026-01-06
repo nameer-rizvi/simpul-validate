@@ -1,3 +1,3 @@
-import { ValidationArgs } from "./interfaces";
-declare function validateMin({ label, setting, value }: ValidationArgs): void;
+import { ValidationOptions } from "./interfaces";
+declare function validateMin({ label, setting, value }: ValidationOptions): void;
 export default validateMin;

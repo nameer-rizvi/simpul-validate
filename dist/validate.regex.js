@@ -92,7 +92,7 @@ const resolver = {
         trusted: true,
     },
     slug: {
-        r: /^[a-z0-9]+(?:-[a-z0-9]+)*$/,
+        r: /^[a-z0-9]+(?:[-_][a-z0-9]+)*$/i,
         warning: "must be lowercase and hyphen-separated",
         trusted: true,
     },
@@ -123,24 +123,18 @@ const resolver = {
     },
 };
 function validateRegex({ label, setting, value }) {
+    var _a;
     if (simpul_1.default.isString(value) && simpul_1.default.isArray(setting)) {
         for (const rule of setting) {
             const config = typeof rule === "string" ? resolver[rule] : rule;
             if (!simpul_1.default.isObject(config)) {
                 throw new Error(`Regex config for rule ("${rule}") is undefined.`);
             }
-            if (!simpul_1.default.isRegex(config.r)) {
-                throw new Error(`Regex config.r for rule ("${rule}") is invalid.`);
-            }
-            if (!simpul_1.default.isString(config.warning)) {
-                const error = `Regex config.warning for rule ("${rule}") is invalid.`;
-                throw new Error(error);
-            }
             if (config.trusted !== true && !(0, safe_regex_1.default)(config.r)) {
                 throw new Error(`Unsafe regex detected for rule ("${rule}").`);
             }
             if (config.r.test(value) === false) {
-                throw new Error(`${label} ${config.warning}.`);
+                throw new Error(`${label} ${(_a = config.warning) !== null && _a !== void 0 ? _a : "is invalid"}.`);
             }
         }
     }

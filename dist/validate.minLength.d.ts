@@ -1,3 +1,3 @@
-import { ValidationArgs } from "./interfaces";
-declare function validateMinLength({ label, value, ...rest }: ValidationArgs): void;
+import { ValidationOptions } from "./interfaces";
+declare function validateMinLength({ label, value, ...rest }: ValidationOptions): void;
 export default validateMinLength;

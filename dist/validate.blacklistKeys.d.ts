@@ -1,3 +1,3 @@
-import { ValidationArgs } from "./interfaces";
-declare function validateBlacklistKeys({ value, ...rest }: ValidationArgs): void;
+import { ValidationOptions } from "./interfaces";
+declare function validateBlacklistKeys({ value, ...rest }: ValidationOptions): void;
 export default validateBlacklistKeys;

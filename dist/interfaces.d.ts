@@ -9,13 +9,14 @@ export type RegexRule = {
 export type RegexRuleName = "alphaNumeric" | "countryCode" | "creditCard" | "currencyAmount" | "displayName" | "email" | "hexColor" | "ipv4" | "noEmoji" | "noHtml" | "noSpecialChar" | "noWhitespace" | "onlyLetters" | "onlyNumbers" | "phoneNumber" | "pinCode" | "postalCodeUS" | "slug" | "strongPassword" | "trimmed" | "username" | "uuidV4" | "website";
 export type RequiredList = readonly string[];
 export type StringOrArray<T = string> = T | readonly T[];
-export type ValidationResolver = Record<string, (args: ValidationArgs) => void>;
+export type ValidationResolver = Record<string, (options: ValidationOptions) => void>;
 export type ValueType = "array" | "arrayNonEmpty" | "arrayOrString" | "base64" | "boolean" | "booleanAny" | "booleanNumber" | "booleanString" | "creditCardNumber" | "date" | "email" | "error" | "function" | "http" | "json" | "jsonString" | "jwt" | "module" | "number" | "numberString" | "numberValid" | "numeric" | "object" | "objectNonEmpty" | "phoneNumber" | "regex" | "string" | "stringNonEmpty" | "stringOrArray" | "stringSafe" | "url" | "valid";
 export interface Definition {
     readonly key: string;
     readonly label?: string;
     readonly ignoreSanitizer?: boolean;
     readonly ignoreSanitizerValidation?: boolean;
+    readonly domPurifyOptions?: DOMPurify.Config;
     readonly blacklist?: StringOrArray;
     readonly blacklistKeys?: StringOrArray;
     readonly match?: string;
@@ -52,7 +53,7 @@ export interface Options {
     readonly custom?: ValidationResolver;
     readonly domPurifyOptions?: DOMPurify.Config;
 }
-export interface ValidationArgs {
+export interface ValidationOptions {
     readonly setting: unknown;
     readonly value: unknown;
     readonly label: string;

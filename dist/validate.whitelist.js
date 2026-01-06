@@ -24,6 +24,13 @@ function normalize(input) {
                 list.push(item.toLowerCase());
         return list;
     }
+    else if (simpul_1.default.isObject(input)) {
+        const list = [];
+        for (const value of Object.values(input).flat())
+            if (simpul_1.default.isString(value))
+                list.push(value.toLowerCase());
+        return list;
+    }
     else {
         return [];
     }
