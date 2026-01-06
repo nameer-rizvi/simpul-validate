@@ -19,6 +19,11 @@ function normalize(input: unknown): string[] {
     for (const item of input.flat())
       if (simpul.isString(item)) list.push(item.toLowerCase());
     return list;
+  } else if (simpul.isObject(input)) {
+    const list: string[] = [];
+    for (const value of Object.values(input).flat())
+      if (simpul.isString(value)) list.push(value.toLowerCase());
+    return list;
   } else {
     return [];
   }

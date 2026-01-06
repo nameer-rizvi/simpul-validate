@@ -130,10 +130,6 @@ function validateRegex({ label, setting, value }: ValidationOptions) {
         throw new Error(`Regex config for rule ("${rule}") is undefined.`);
       }
 
-      if (!simpul.isRegex(config.r)) {
-        throw new Error(`Regex config.r for rule ("${rule}") is invalid.`);
-      }
-
       if (config.trusted !== true && !safeR(config.r)) {
         throw new Error(`Unsafe regex detected for rule ("${rule}").`);
       }
