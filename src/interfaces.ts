@@ -39,7 +39,10 @@ export type RequiredList = readonly string[];
 
 export type StringOrArray<T = string> = T | readonly T[];
 
-export type ValidationResolver = Record<string, (args: ValidationArgs) => void>;
+export type ValidationResolver = Record<
+  string,
+  (options: ValidationOptions) => void
+>;
 
 export type ValueType =
   | "array"
@@ -84,6 +87,7 @@ export interface Definition {
   readonly label?: string;
   readonly ignoreSanitizer?: boolean;
   readonly ignoreSanitizerValidation?: boolean;
+  readonly domPurifyOptions?: DOMPurify.Config;
   readonly blacklist?: StringOrArray;
   readonly blacklistKeys?: StringOrArray;
   readonly match?: string;
@@ -122,7 +126,7 @@ export interface Options {
   readonly domPurifyOptions?: DOMPurify.Config;
 }
 
-export interface ValidationArgs {
+export interface ValidationOptions {
   readonly setting: unknown;
   readonly value: unknown;
   readonly label: string;

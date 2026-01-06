@@ -21,13 +21,13 @@ function initializer(dictionary: Definition[], option: Options = {}) {
     }
   }
 
-  const validationResolver: ValidationResolver = {
+  const validationResolver: ValidationResolver = Object.freeze({
     ...validateIndex,
     ...option.custom,
-  };
+  });
 
   return function validator(payload?: PayloadObject, required?: RequiredList) {
-    if (payload === undefined) return;
+    if (!simpul.isObject(payload)) return;
 
     for (const [key, value] of Object.entries(payload)) {
       const definition = getDefinition(defMap, key);
@@ -62,7 +62,9 @@ function initializer(dictionary: Definition[], option: Options = {}) {
           simpul.isObject(value));
 
       if (isSanitizer) {
-        const sanitizedValue = sanitized(value, option.domPurifyOptions);
+        const options = definition.domPurifyOptions || option.domPurifyOptions;
+
+        const sanitizedValue = sanitized(value, options);
 
         if (definition.ignoreSanitizerValidation !== true) {
           if (JSON.stringify(value) !== JSON.stringify(sanitizedValue)) {

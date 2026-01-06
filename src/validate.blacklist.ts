@@ -1,7 +1,7 @@
-import { ValidationArgs } from "./interfaces";
+import { ValidationOptions } from "./interfaces";
 import simpul from "simpul";
 
-function validateBlacklist({ label, setting, value }: ValidationArgs) {
+function validateBlacklist({ label, setting, value }: ValidationOptions) {
   const values = normalize(value);
   const settings = normalize(setting);
   for (const v of values) {

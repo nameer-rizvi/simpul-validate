@@ -1,4 +1,4 @@
-import { RegexRule, ValidationArgs } from "./interfaces";
+import { RegexRule, ValidationOptions } from "./interfaces";
 import simpul from "simpul";
 import safeR from "safe-regex";
 
@@ -89,7 +89,7 @@ const resolver: Record<string, RegexRule> = {
     trusted: true,
   },
   slug: {
-    r: /^[a-z0-9]+(?:-[a-z0-9]+)*$/,
+    r: /^[a-z0-9]+(?:[-_][a-z0-9]+)*$/i,
     warning: "must be lowercase and hyphen-separated",
     trusted: true,
   },
@@ -120,7 +120,7 @@ const resolver: Record<string, RegexRule> = {
   },
 };
 
-function validateRegex({ label, setting, value }: ValidationArgs) {
+function validateRegex({ label, setting, value }: ValidationOptions) {
   if (simpul.isString(value) && simpul.isArray(setting)) {
     for (const rule of setting) {
       const config: RegexRule | undefined =
@@ -134,17 +134,12 @@ function validateRegex({ label, setting, value }: ValidationArgs) {
         throw new Error(`Regex config.r for rule ("${rule}") is invalid.`);
       }
 
-      if (!simpul.isString(config.warning)) {
-        const error = `Regex config.warning for rule ("${rule}") is invalid.`;
-        throw new Error(error);
-      }
-
       if (config.trusted !== true && !safeR(config.r)) {
         throw new Error(`Unsafe regex detected for rule ("${rule}").`);
       }
 
       if (config.r.test(value) === false) {
-        throw new Error(`${label} ${config.warning}.`);
+        throw new Error(`${label} ${config.warning ?? "is invalid"}.`);
       }
     }
   }

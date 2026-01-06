@@ -1,8 +1,8 @@
-import { ValidationArgs } from "./interfaces";
+import { ValidationOptions } from "./interfaces";
 import validateMin from "./validate.min";
 import simpul from "simpul";
 
-function validateMinValueObject({ label, value, ...rest }: ValidationArgs) {
+function validateMinValueObject({ label, value, ...rest }: ValidationOptions) {
   if (simpul.isObject(value)) {
     for (const [k, v] of Object.entries(value)) {
       validateMin({ label: `${label}: "${k}"`, value: v, ...rest });

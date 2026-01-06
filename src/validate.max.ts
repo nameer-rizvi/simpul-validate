@@ -1,7 +1,7 @@
-import { ValidationArgs } from "./interfaces";
+import { ValidationOptions } from "./interfaces";
 import simpul from "simpul";
 
-function validateMax({ label, setting, value }: ValidationArgs) {
+function validateMax({ label, setting, value }: ValidationOptions) {
   if (simpul.isNumber(value) && simpul.isNumber(setting)) {
     if (value > setting) {
       const parts = label.split(simpul.delimiter);

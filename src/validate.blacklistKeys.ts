@@ -1,8 +1,8 @@
-import { ValidationArgs } from "./interfaces";
+import { ValidationOptions } from "./interfaces";
 import validateBlacklist from "./validate.blacklist";
 import simpul from "simpul";
 
-function validateBlacklistKeys({ value, ...rest }: ValidationArgs) {
+function validateBlacklistKeys({ value, ...rest }: ValidationOptions) {
   try {
     if (simpul.isObject(value)) {
       validateBlacklist({ value: Object.keys(value), ...rest });

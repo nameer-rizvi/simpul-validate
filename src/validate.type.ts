@@ -1,4 +1,4 @@
-import { ValidationArgs } from "./interfaces";
+import { ValidationOptions } from "./interfaces";
 import simpul from "simpul";
 
 const resolver = {
@@ -36,7 +36,7 @@ const resolver = {
   valid: simpul.isValid,
 } as const;
 
-function validateType({ label, setting, value }: ValidationArgs) {
+function validateType({ label, setting, value }: ValidationOptions) {
   if (simpul.isString(setting)) {
     const guard = resolver[setting as keyof typeof resolver];
     if ((!guard && typeof value !== setting) || !guard(value)) {
