@@ -330,6 +330,10 @@ const dictionary = [
     type: "url",
   },
   {
+    key: "type-url-string",
+    type: "urlString",
+  },
+  {
     key: "type-valid",
     type: "valid",
   },
@@ -445,7 +449,8 @@ const payloadPass = {
   "type-stringNonEmpty": "world",
   "type-stringOrArray": ["hello", "world"],
   "type-stringSafe": "Safe_String-123",
-  "type-url": "https://www.example.com",
+  "type-url": new URL("https://www.example.com"),
+  "type-url-string": "https://www.example.com",
   "type-valid": "anything",
   typeValueArray: ["a", "b", "c"],
   typeValueObject: { key1: "a", key2: "b", key3: "c" },
@@ -539,6 +544,7 @@ const payloadFail = {
   // "type-stringOrArray": false,
   // "type-stringSafe": "Unsafe!String@#",
   // "type-url": "htp:/example..com",
+  // "type-url-string": "htp:/example..com--a-sdf-asdf-sad",
   // "type-valid": null,
   // typeValueArray: ["a", "b", 3],
   // typeValueObject: { key1: "a", key2: "b", key3: 3 },

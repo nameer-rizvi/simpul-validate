@@ -36,6 +36,7 @@ const resolver = {
     stringOrArray: simpul_1.default.isStringOrArray,
     stringSafe: simpul_1.default.isStringSafe,
     url: simpul_1.default.isURL,
+    urlString: simpul_1.default.isURLString,
     valid: simpul_1.default.isValid,
 };
 function validateType({ label, setting, value }) {

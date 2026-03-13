@@ -33,6 +33,7 @@ const resolver = {
   stringOrArray: simpul.isStringOrArray,
   stringSafe: simpul.isStringSafe,
   url: simpul.isURL,
+  urlString: simpul.isURLString,
   valid: simpul.isValid,
 } as const;
 
